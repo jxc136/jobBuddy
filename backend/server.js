@@ -16,8 +16,8 @@ app.get("/", (req, res) => {
 mongoose.connect(process.env.MONG_URI)
   .then(() => {
     // Only listen for requests when connected
-    app.listen(4000, () => {
-    console.log('listening on port 4000')
+    app.listen(process.env.PORT, () => {
+    console.log('listening on port', process.env.PORT)
 })  
   })
   .catch((error) => (
