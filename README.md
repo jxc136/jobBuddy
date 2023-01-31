@@ -2,5 +2,5 @@
 
 # Installation
 
-- Jest
+- Jest <br>
 npm install jest
