@@ -1,15 +1,22 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Button from 'react-bootstrap/Button';
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Home from './pages/home'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        
-          Job Buddy
-          <Button variant='secondary'>click me</Button>
-      </header>
+    <div className="App"> 
+      <BrowserRouter>
+        <div className="pages">
+          <Routes>
+            <Route 
+            path="/"
+            element={< Home />}/>
+  
+          </Routes>
+          
+        </div>
+      </BrowserRouter>
     </div>
   );
 }
