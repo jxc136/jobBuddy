@@ -4,6 +4,8 @@
   },
 
   "dependencies": {
-    "jest": "^29.4.1"
+    "jest": "^29.4.1", 
+    "preset": "@shelf/jest-mongodb"
   }
+  
 }

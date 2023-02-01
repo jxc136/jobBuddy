@@ -2,20 +2,26 @@ require('dotenv').config()
 // import {} from 'dotenv/config'
 const express = require ('express');
 const mongoose = require('mongoose');
+const Application = require('./models/applicationModel')
+const applicationRoutes = require('./routes/applications')
 const userRoutes = require('./routes/users')
 
 // Create Express App
 const app = express()
 
-// middleware
-app.use(express.json());
+// Middleware 
+
+app.use(express.json())
+
 app.use((req, res, next) => {
   console.log(req.path, req.method)
   next()
 })
 
-app.use('/users', userRoutes)
 // Routes
+
+app.use('/api/applications', applicationRoutes)
+app.use('/users', userRoutes)
 
 // Connect to Database
 mongoose.connect(process.env.MONG_URI)
@@ -28,5 +34,9 @@ mongoose.connect(process.env.MONG_URI)
   .catch((error) => (
     console.log(error)
   ))
+  
+ // Ensure that application schema has been created
+  console.log(Application)
+  
 
 
