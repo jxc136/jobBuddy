@@ -1,22 +1,29 @@
 require('dotenv').config()
 const express = require ('express');
 const mongoose = require('mongoose');
-const { createApplication } = require('./controllers/applicationController');
 const Application = require('./models/applicationModel')
+const applicationRoutes = require('./routes/applications')
 
 // Create Express App
 const app = express()
 
+// Middleware 
+
+app.use(express.json())
+
+app.use((req, res, next) => {
+  console.log(req.path, req.method)
+  next()
+})
 
 // Routes
 
-app.post("/", (createApplication, res) => {
-  res.json(createApplication)
-})
+// attach a route handler 
+app.get('/', (req, res) => {
+  res.json({mssg: 'get all applications'})
+});
 
-// app.get("/", (req, res) => {
-//   res.json({mssg: 'welcome to the app'})
-// })
+app.use('/api/applications', applicationRoutes)
 
 // Connect to Database
 mongoose.connect(process.env.MONG_URI)
