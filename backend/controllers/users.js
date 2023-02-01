@@ -2,10 +2,20 @@ const User = require('../models/users');
 const mongoose = require('mongoose');
 
 const getUsers = async (req, res) => {
-  res.json({mssg: 'GET all users'})
-  // const users = await User.find({}).sort({createdAt: -1})
-  // res.status(200).json(users)
+  // res.json({mssg: 'GET all users'})
+  const users = await User.find({}).sort({createdAt: -1})
+  res.status(200).json(users)
 }
+
+// get user by id
+const getUserById = async (req, res) => {
+  const { id } = req.params
+
+  const user = await User.findById(id)
+  res.status(200).json(user);
+}
+
+
 
 const createUser = async (req, res) => {
   const {firstname, lastname, email, password} = req.body
@@ -21,5 +31,6 @@ const createUser = async (req, res) => {
 
 module.exports = {
   getUsers, 
+  getUserById,
   createUser
 }

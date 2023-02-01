@@ -14,10 +14,8 @@ app.use((req, res, next) => {
   next()
 })
 
-
 app.use('/users', userRoutes)
 // Routes
-
 
 // Connect to Database
 mongoose.connect(process.env.MONG_URI)
