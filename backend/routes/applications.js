@@ -1,6 +1,9 @@
 // Require express package 
 const express = require ('express')
-const applications = require ('../controllers/applicationController')
+
+const {  
+createApplication 
+} = require ('../controllers/applicationController')
 
 // Create a new instance of the router
 const router = express.Router(); 
@@ -14,8 +17,6 @@ router.get('/', (req, res) => {
 
 // POST an application 
 
-router.post('/', (req, res) => {
-  res.json({mssg: 'create an application'})
-})
+router.post('/', createApplication)
 
 module.exports = router;

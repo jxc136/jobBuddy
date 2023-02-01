@@ -1,6 +1,8 @@
 const mongoose = require('mongoose')
 
-const ApplicationSchema = new mongoose.Schema({
+const Schema = mongoose.Schema;
+
+const applicationsSchema = new Schema({
   
   job_title: {
     type: String, 
@@ -31,8 +33,6 @@ const ApplicationSchema = new mongoose.Schema({
     type: String
   },
  
-})
+});
 
-const Application = mongoose.model("Application", ApplicationSchema)
-
-module.exports = Application
+module.exports = mongoose.model('Application', applicationsSchema );
