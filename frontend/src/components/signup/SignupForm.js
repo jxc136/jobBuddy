@@ -8,12 +8,34 @@ const Signup = (signup) => {
   const [lastname, setLastname] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  
+  const [error, setError] = useState('')
 
   const handleSignUp = async (e) => {
-    const user = {}
+    e.preventDefault()
 
-  }
+    const user = {firstname, lastname, email, password}
+
+    const response = await fetch('/users', {
+      method: 'POST',
+      body: JSON.stringify(user),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    const json = await response.json()
+
+    if (!response.ok) {
+      setError(json.error)
+    }
+    if (response.ok) {
+      setFirstname('')
+      setLastname('')
+      setEmail('')
+      setPassword('')
+      setError(null)
+      console.log('new User added', json)
+    }
+  } 
 
   return (
     <form onSubmit={handleSignUp}>
@@ -55,13 +77,14 @@ const Signup = (signup) => {
           className="form-control"
           placeholder="Enter password"
           onChange={(e) => setPassword(e.target.value)}
-          value={email}
+          value={password}
         />
       </div>
       <div className="d-grid">
         <button type="submit" className="btn btn-primary" >
           Sign Up
         </button>
+        {error && <div classname="error">{error}</div>}
       </div>
       <p className="forgot-password text-right">
         Already registered <a href="/sign-in">sign in?</a>

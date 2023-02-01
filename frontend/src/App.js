@@ -1,8 +1,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Button from 'react-bootstrap/Button';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Signup from './components/signup/Signup'
+import Signup from './components/signup/SignupForm'
 
 function App() {
   return (
