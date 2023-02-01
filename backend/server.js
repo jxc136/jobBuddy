@@ -1,16 +1,21 @@
 require('dotenv').config()
+// import {} from 'dotenv/config'
 const express = require ('express');
 const mongoose = require('mongoose');
+const userRoutes = require('./routes/users')
 
 // Create Express App
 const app = express()
 
-
-// Routes
-
-app.get("/", (req, res) => {
-  res.json({mssg: 'welcome to the app'})
+// middleware
+app.use(express.json());
+app.use((req, res, next) => {
+  console.log(req.path, req.method)
+  next()
 })
+
+app.use('/users', userRoutes)
+// Routes
 
 // Connect to Database
 mongoose.connect(process.env.MONG_URI)
@@ -23,4 +28,5 @@ mongoose.connect(process.env.MONG_URI)
   .catch((error) => (
     console.log(error)
   ))
+
 
