@@ -18,11 +18,6 @@ app.use((req, res, next) => {
 
 // Routes
 
-// attach a route handler 
-app.get('/', (req, res) => {
-  res.json({mssg: 'get all applications'})
-});
-
 app.use('/api/applications', applicationRoutes)
 
 // Connect to Database
