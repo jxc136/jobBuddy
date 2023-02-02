@@ -1,0 +1,33 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 0 20px;
+  background-color: #bdc8e0;
+  color: white;
+}
+
+.navbar-brand {
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #3e5270;
+  align-items: left;
+}
+
+.navbar-links {
+  display: flex;
+  justify-content: flex-start;
+  width: 50%;
+  flex-wrap: wrap;
+}
+
+.navbar-link {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 20px;
+  font-size: 16px;
+  text-decoration: none;
+  color: #818fab;
+}
