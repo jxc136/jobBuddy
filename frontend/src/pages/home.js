@@ -1,22 +1,28 @@
-import Button from 'react-bootstrap/Button';
-const Home = () => {
+import { useEffect, useState } from "react";
+import ApplicationDetails from "../components/applicationDetails";
+import ApplicationsWidget from "../components/ApplicationsWidget";
 
-  return (
-    
-    <div className="home">
-      <header className="App-header">
-              Job Buddy
-              <Button variant='secondary'>click me</Button>
-            </header>
-      <h2>Home</h2>
-      <div className="widget">
-        </div>
-    
+const Home  = () => {
+  const [applications, setApplications] = useState(null)
+  useEffect(() => {
+    const fetchApplications = async() => {
+    const response = await fetch('/api/applications')
+    const json = await response.json()
+    if (response.ok) {
+      setApplications(json)
+    }
+    }
+
+    fetchApplications()
+  }, [])
+  return ( 
+    <div className="Home">
+      <div className="Applications">
+        <h2>Applications</h2>
+        <ApplicationsWidget applications={applications}/>
+      </div>
     </div>
-
-    
-  )
- }
+   );
+}
  
- 
- export default Home;
+export default Home ;
