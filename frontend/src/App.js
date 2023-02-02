@@ -1,20 +1,22 @@
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Signup from './components/signup/SignupForm'
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Signup from "./components/signup/SignupForm";
+import NavBar from "./components/navbar/navbar";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Signup />}>
-      
-              </Route>
-            </Routes>
-          </BrowserRouter>
+        <NavBar />
       </header>
+      <BrowserRouter>
+        <div className="pages">
+          <Routes>
+            <Route path="/" element={<Signup />}></Route>
+          </Routes>
+        </div>
+      </BrowserRouter>
     </div>
   );
 }
