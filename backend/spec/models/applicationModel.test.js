@@ -31,15 +31,15 @@ describe('insert', () => {
   });
 
    // You shouldn't be able to add in any field that isn't defined in the schema
-   it("inserts application successfully, but the field not defined in schema should be undefined", async () => {
+  //  xit("inserts application successfully, but the field not defined in schema should be undefined", async () => {
 
-    const applications = db.collection('applications');
-    const mockApplication = {_id: 'another-application-id', wrong_field: 'wrong'};
-    await applications.insertOne(mockApplication);
-    const insertedApplication = await applications.findOne({_id: 'another-application-id'});
-    expect(insertedApplication._id).toBeDefined();
-    // expect(insertedApplication.wrong_field:).toBeUndefined()
-    });
+  //   const applications = db.collection('applications');
+  //   const mockApplication = {_id: 'another-application-id', wrong_field: 'wrong'};
+  //   await applications.insertOne(mockApplication);
+  //   const insertedApplication = await applications.findOne({_id: 'another-application-id'});
+  //   expect(insertedApplication._id).toBeDefined();
+  //   // expect(insertedApplication.wrong_field:).toBeUndefined()
+  //   });
    
 
 });

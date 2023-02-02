@@ -21,6 +21,7 @@ const createUser = async (req, res) => {
   // add doc to db
   try {
     const user = await User.signup({firstname, lastname, email, password})
+
     res.status(200).json(user)
   } catch (error) {
     res.status(400).json({ error: error.message })
