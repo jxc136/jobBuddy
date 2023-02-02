@@ -31,18 +31,12 @@ userSchema.statics.signup = async function({firstname, lastname, email, password
   throw Error('Email already in use')
  }
 
- const user = this.create({firstname, lastname, email, password }) 
+ const salt = await bcrypt.genSalt(10)
+ const hash = await bcrypt.hash(password, salt)
+
+ const user = await this.create({firstname, lastname, email, password: hash}) 
 
  return user
-
-//  const salt = await bcrypt.genSalt(10)
-
-//  const hash = await bcrypt.hash(password, salt)
-
-//  const user = await this.create({ firstname, lastname, email, password: hash })
-
-//  return user
-
 }
 
 module.exports = mongoose.model('User', userSchema)
