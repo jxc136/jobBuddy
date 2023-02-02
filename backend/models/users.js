@@ -31,8 +31,6 @@ userSchema.statics.signup = async function(firstname, lastname, email, password)
   throw Error('Email already in use')
  }
 
-
-
 }
 
 module.exports = mongoose.model('User', userSchema)

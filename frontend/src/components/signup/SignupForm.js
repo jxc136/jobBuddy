@@ -84,7 +84,7 @@ const Signup = (signup) => {
         <button type="submit" className="btn btn-primary" >
           Sign Up
         </button>
-        {error && <div classname="error">{error}</div>}
+        {error && <div className="error">{error}</div>}
       </div>
       <p className="forgot-password text-right">
         Already registered <a href="/sign-in">sign in?</a>
