@@ -24,12 +24,24 @@ const userSchema = new Schema({
   myApplications: []
 });
 
-userSchema.statics.signup = async function(firstname, lastname, email, password) {
+userSchema.statics.signup = async function({firstname, lastname, email, password}) {
  const exists = await this.findOne({ email })
 
  if (exists) {
   throw Error('Email already in use')
  }
+
+ const user = this.create({firstname, lastname, email, password }) 
+
+ return user
+
+//  const salt = await bcrypt.genSalt(10)
+
+//  const hash = await bcrypt.hash(password, salt)
+
+//  const user = await this.create({ firstname, lastname, email, password: hash })
+
+//  return user
 
 }
 
