@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import ApplicationDetails from "../components/applicationDetails";
 import ApplicationsWidget from "../components/ApplicationsWidget";
 
 const Home  = () => {
