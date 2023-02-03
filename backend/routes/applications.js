@@ -14,6 +14,11 @@ const router = express.Router();
 // GET all applications 
 router.get('/', getApplications);
 
+// GET a single application
+router.get('/:id', (req, res) => {
+  res.json({mssg: 'get a single application'})
+})
+
 // POST an application 
 
 router.post('/', createApplication)
