@@ -2,8 +2,9 @@
 const express = require ('express')
 
 const {  
+getApplications, 
+getOneApplication,
 createApplication,
-getApplications 
 } = require ('../controllers/applicationController')
 
 // Create a new instance of the router
@@ -15,9 +16,7 @@ const router = express.Router();
 router.get('/', getApplications);
 
 // GET a single application
-router.get('/:id', (req, res) => {
-  res.json({mssg: 'get a single application'})
-})
+router.get('/:id', getOneApplication)
 
 // POST an application 
 
