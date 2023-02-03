@@ -5,6 +5,8 @@
   "private": true,
   "dependencies": {
     "@syncfusion/ej2-base": "^20.4.48",
+    "@syncfusion/ej2-react-documenteditor": "^20.4.48",
+    "@syncfusion/ej2-react-dropdowns": "^20.4.48",
     "@syncfusion/ej2-react-kanban": "^20.4.48",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
