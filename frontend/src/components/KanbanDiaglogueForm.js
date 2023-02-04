@@ -5,6 +5,8 @@ import { TextBoxComponent } from '@syncfusion/ej2-react-inputs';
 import { DatePickerComponent } from '@syncfusion/ej2-react-calendars';
 import { CheckBoxComponent } from '@syncfusion/ej2-react-buttons';
 import { extend } from '@syncfusion/ej2-base';
+import './KanbanDialogueForm.css';
+
 
 
 function KanbanDialogFormTemplate(applications) {
@@ -21,71 +23,33 @@ function KanbanDialogFormTemplate(applications) {
       <table>
         <tbody>
           <tr>
-            <td className="e-label">ID</td>
+            <td className="e-label">Job Title</td>
             <td>
               <div className="e-float-input e-control-wrapper">
                 <input
-                  id="Id"
-                  name="Id"
+                  id="job_title"
+                  name="job_title"
                   type="text"
                   className="e-field"
-                  value={data._id}
-                  disabled
+                  value={data.job_title}
                 />
               </div>
             </td>
           </tr>
           <tr>
-            <td className="e-label">Status</td>
-            <td>
-              <DropDownListComponent
-                id="Category"
-                name="Category"
-                dataSource={categoryData}
-                className="e-field"
-                placeholder="Category"
-                value={data.Category}
-              ></DropDownListComponent>
-            </td>
-          </tr>
-          <tr>
-            <td className="e-label">Title</td>
+            <td className="e-label">Employer</td>
 
             <td>
               <TextBoxComponent
-                id="Title"
-                name="Title"
+                id="employer"
+                name="employer"
                 className="e-field"
-                placeholder="Title"
-                value={data.Title}
+                placeholder="Employer"
+                value={data.employer}
               ></TextBoxComponent>
             </td>
           </tr>
-          <tr>
-            <td className="e-label">Size</td>
-            <td>
-              <TextBoxComponent
-                id="Size"
-                name="Size"
-                className="e-field"
-                placeholder="Size"
-                value={data.Size}
-              ></TextBoxComponent>
-            </td>
-          </tr>
-          <tr>
-            <td className="e-label">Description</td>
-            <td>
-              <div className="e-float-input e-control-wrapper">
-                <textarea
-                  name="Description"
-                  className="e-field"
-                  value={data.Description}
-                  onChange={onChange.bind(this)}
-                ></textarea>
-              </div>
-            </td>
-          </tr>
+          
           <tr>
             <td className="e-label">Deadline</td>
             <td>
@@ -93,11 +57,56 @@ function KanbanDialogFormTemplate(applications) {
                 id="Date"
                 className="e-field"
                 format="MM/dd/yyyy"
-                value={data.Date}
+                value={data.deadline}
               ></DatePickerComponent>
             </td>
           </tr>
 
+          <tr>
+            <td className="e-label">Deadline Type</td>
+            <td>
+            <div className='control-pane'>
+              <DropDownListComponent
+                id="Deadline Type"
+                name="Deadline Type"
+                dataSource={categoryData}
+                className="e-field"
+                placeholder="Deadline Type"
+                value={data.deadline_type}
+              ></DropDownListComponent>
+            </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td className="e-label">Status</td>
+            <td>
+            <div className='control-pane'>
+              <DropDownListComponent
+                id="Status"
+                name="Status"
+                dataSource={categoryData}
+                className="e-field"
+                placeholder="Status"
+                value={data.status}
+              ></DropDownListComponent>
+            </div>
+            </td>
+          </tr>
+          <tr>
+            <td className="e-label">Contact Person</td>
+
+            <td>
+              <TextBoxComponent
+                id="Contact"
+                name="Contact"
+                className="e-field"
+                placeholder="Contact"
+                value={data.contact_person}
+              ></TextBoxComponent>
+            </td>
+          </tr>
+          
           <tr>
             <td className="checklist">Interview Checklist</td>
             <td>
@@ -108,18 +117,7 @@ function KanbanDialogFormTemplate(applications) {
               <CheckBoxComponent label="CheckBox" />
             </td>
           </tr>
-
-          <tr>
-            <td className="Date example "> Date Example </td>
-            <td>
-              <DatePickerComponent
-                id="Date"
-                className="e-field"
-                format="MM/dd/yyyy"
-                value={data.Date}
-              ></DatePickerComponent>
-            </td>
-          </tr>
+          
         </tbody>
       </table>
     </div>

@@ -13,7 +13,10 @@
     "@syncfusion/ej2-react-calendars": "^20.4.48",
     "@syncfusion/ej2-react-dropdowns": "^20.4.48",
     "@syncfusion/ej2-react-inputs": "^20.4.48",
+    "install": "^0.13.0",
     "jest": "^29.4.1",
-    "preset": "@shelf/jest-mongodb"
+    "npm": "^9.4.1",
+    "preset": "@shelf/jest-mongodb",
+    "react-datepicker": "^4.10.0"
   }
 }
