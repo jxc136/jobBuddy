@@ -5,6 +5,7 @@ const {
 getApplications, 
 getOneApplication,
 createApplication,
+updateApplication
 } = require ('../controllers/applicationController')
 
 // Create a new instance of the router
@@ -21,5 +22,9 @@ router.get('/:id', getOneApplication)
 // POST an application 
 
 router.post('/', createApplication)
+
+// PATCH an application
+
+router.patch('/:id', updateApplication)
 
 module.exports = router;

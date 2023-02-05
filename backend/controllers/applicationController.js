@@ -43,8 +43,25 @@ const createApplication = async (req, res) => {
   }
 }
 
+// Update a single application 
+
+const updateApplication = async (req, res) => {
+  const { id } = req.params
+    
+      const application = await Application.findOneAndUpdate({_id: id}, {
+        ...req.body
+      })
+
+      if (!application) {
+        return res.status(400).json({error: "no such applicatiom in DB"})
+      }
+
+      res.status(200).json(application)
+}
+
 module.exports = {
   getApplications,
   getOneApplication,
   createApplication,
+  updateApplication
 };
