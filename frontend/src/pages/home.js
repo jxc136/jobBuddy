@@ -25,7 +25,10 @@ const Home  = () => {
   return ( 
     <div className="Home">
       <div className="Applications">
-        <h2>Applications</h2>
+        <h2>Dashboard</h2>
+        <div className="subheader-container">
+        <h4 className="title-left">My Job Applications</h4>
+        </div>
         <ApplicationsWidget applications={applications}/>
       </div>
     </div>
