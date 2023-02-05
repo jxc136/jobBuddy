@@ -25,17 +25,13 @@ const handleActionBegin = (args) => {
 const dialogTemplate = (applications) => {
   return <KanbanDialogFormTemplate applications={applications} />;
 }
-const formatDeadline = (deadline) => {
-  const date = new Date(deadline);
-  return date.toLocaleDateString();
-};
   return (
      
     <div className="KanbanContainer">
        
-       <KanbanComponent id="kanban" keyField="status" dataSource={data} cardSettings={{ contentField: "employer", tagsField: "deadline", tagTemplate: formatDeadline, headerField: "job_title" }} actionBegin={handleActionBegin} dialogSettings={{ template: dialogTemplate.bind(this) }}>
+       <KanbanComponent id="kanban" keyField="status" dataSource={data} cardSettings={{ contentField: "employer", tagsField: 'deadline', headerField: "job_title" }} actionBegin={handleActionBegin} dialogSettings={{ template: dialogTemplate.bind(this) }}>
             <ColumnsDirective>
-            <ColumnDirective headerText="Bookmarked" keyField="Bookmarked"/>
+            <ColumnDirective headerText="Bookmarked" keyField="Bookmarked" />
             <ColumnDirective headerText="Applying" keyField="Applying"/>
             <ColumnDirective headerText="Applying" keyField="Applied"/>
             <ColumnDirective headerText="Interview" keyField="Interview"/>

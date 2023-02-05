@@ -59,4 +59,9 @@
   padding: 20px;
   text-align: center;
   }
+  .border-colored {
+    border-color: blue;
+    border-width: 2px;
+    border-style: solid;
+  }
 
