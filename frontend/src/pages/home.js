@@ -3,7 +3,7 @@ import ApplicationsWidget from "../components/ApplicationsWidget";
 
 const Home  = () => {
   const [applications, setApplications] = useState(null)
-  useEffect(() => {
+  const getApplications = useEffect(() => {
     const fetchApplications = async() => {
     const response = await fetch('/api/applications')
     const json = await response.json()
@@ -17,11 +17,16 @@ const Home  = () => {
         application.deadline = ` ${application.deadline_type} Deadline: ${formattedDeadline}`;
       });
       setApplications(json)
+     
     }
     }
 
     fetchApplications()
   }, [])
+
+
+  
+
   return ( 
     <div className="Home">
       <div className="Applications">
@@ -29,7 +34,7 @@ const Home  = () => {
         <div className="subheader-container">
         <h4 className="title-left">My Job Applications</h4>
         </div>
-        <ApplicationsWidget applications={applications}/>
+        <ApplicationsWidget applications={applications} />
       </div>
     </div>
    );

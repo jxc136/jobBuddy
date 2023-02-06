@@ -22,7 +22,6 @@ const ApplicationsWidget  = (applications) => {
   }
 
   const handleDrop = async (event) => {
-    console.log('card has dropped')
       let response = await fetch(`/api/applications/${event.data[0]._id}`, {
         method: "PATCH",
         headers: {
@@ -45,7 +44,7 @@ const ApplicationsWidget  = (applications) => {
      
     <div className="KanbanContainer">
        
-       <KanbanComponent id="kanban" keyField="status" dataSource={data} cardSettings={{ contentField: "employer", tagsField: 'deadline', headerField: "job_title" }} dragStart={handleDragStart.bind(this)} dragStop={handleDrop} dialogSettings={{ template: dialogTemplate.bind(this) }}>
+       <KanbanComponent id="kanban" keyField="status" dataSource={data} cardSettings={{ contentField: "employer", tagsField: ('deadline_type', 'deadline'), headerField: "job_title" }} dragStart={handleDragStart.bind(this)} dragStop={handleDrop} dialogSettings={{ template: dialogTemplate.bind(this) }}>
             <ColumnsDirective>
             <ColumnDirective headerText="Bookmarked" keyField="Bookmarked" />
             <ColumnDirective headerText="Applying" keyField="Applying"/>
