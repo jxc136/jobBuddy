@@ -5,6 +5,7 @@ const {
 getApplications, 
 getOneApplication,
 createApplication,
+deleteApplication,
 updateApplication
 } = require ('../controllers/applicationController')
 
@@ -22,6 +23,7 @@ router.get('/:id', getOneApplication)
 // POST an application 
 
 router.post('/', createApplication)
+router.post('/deleteApplication', deleteApplication);
 
 // PATCH an application
 

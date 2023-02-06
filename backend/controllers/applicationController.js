@@ -3,6 +3,7 @@ const Application = require('../models/applicationModel')
 
 // Import Mongoose
 const mongoose = require('mongoose')
+const { application } = require('express')
 
 // Get ALL applications 
 
@@ -43,6 +44,18 @@ const createApplication = async (req, res) => {
   }
 }
 
+const deleteApplication = async (req, res) => {
+  const application = req.body[0]
+  console.log("Removing application " + application._id);
+  // del a doc from DB 
+  try {
+    await Application.deleteOne({_id: application._id})
+    res.status(200).json({_id: application._id})
+  } catch(error) {
+    console.log(error.message)
+    res.status(400).json({error: error.message})
+  }
+}
 // Update a single application 
 
 const updateApplication = async (req, res) => {
@@ -63,5 +76,6 @@ module.exports = {
   getApplications,
   getOneApplication,
   createApplication,
+  deleteApplication,
   updateApplication
 };

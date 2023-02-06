@@ -15,6 +15,24 @@ const ApplicationsWidget  = (applications) => {
 
   let data = applications.applications
 
+  const handleRemoving = async (args) => {
+    const response = await fetch('/api/applications/deleteApplication', {
+      method: 'POST',
+      body: JSON.stringify(args.deletedRecords),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    if(!response.ok) {
+      throw new Error("Couldn't remove the card. ")
+    }
+  }
+
+  const handleActionBegin = (args) => {
+    if (args.requestType === "cardRemove") {
+      handleRemoving(args)
+    }
+  };
   const handleDragStart = (event) => {
     setId(event.data[0]._id)
     console.log(event.data[0]._id)
@@ -44,7 +62,9 @@ const ApplicationsWidget  = (applications) => {
      
     <div className="KanbanContainer">
        
-       <KanbanComponent id="kanban" keyField="status" dataSource={data} cardSettings={{ contentField: "employer", tagsField: ('deadline_type', 'deadline'), headerField: "job_title" }} dragStart={handleDragStart.bind(this)} dragStop={handleDrop} dialogSettings={{ template: dialogTemplate.bind(this) }}>
+
+       <KanbanComponent id="kanban" keyField="status" dataSource={data} cardSettings={{ contentField: "employer", tagsField: ('deadline_type', 'deadline'), headerField: "job_title" }} dragStart={handleDragStart.bind(this)} actionBegin={handleActionBegin} dragStop={handleDrop} dialogSettings={{ template: dialogTemplate.bind(this) }}>
+
             <ColumnsDirective>
             <ColumnDirective headerText="Bookmarked" keyField="Bookmarked" />
             <ColumnDirective headerText="Applying" keyField="Applying"/>
@@ -54,6 +74,7 @@ const ApplicationsWidget  = (applications) => {
            
             </ColumnsDirective>
         </KanbanComponent>
+
     </div>
   );
 };
