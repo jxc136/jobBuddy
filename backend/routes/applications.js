@@ -3,7 +3,8 @@ const express = require ('express')
 
 const {  
 createApplication,
-getApplications 
+getApplications,
+deleteApplication
 } = require ('../controllers/applicationController')
 
 // Create a new instance of the router
@@ -17,5 +18,6 @@ router.get('/', getApplications);
 // POST an application 
 
 router.post('/', createApplication)
+router.post('/deleteApplication', deleteApplication);
 
 module.exports = router;

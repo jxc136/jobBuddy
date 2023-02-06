@@ -30,6 +30,20 @@ describe('insert', () => {
     expect(insertedApplication).toEqual(mockApplication);
   });
 
+  it('should insert and delete a doc', async () => {
+    const applications = db.collection('applications');
+    
+    const mockApplication = {_id: 'some-application-id-1', job_title: 'Apple-1'};
+    await applications.insertOne(mockApplication);
+
+    const insertedApplication = await applications.findOne({_id: 'some-application-id-1'});
+    expect(insertedApplication).toEqual(mockApplication);
+
+    await applications.deleteOne(mockApplication);
+    const deletedApplication = await applications.findOne({_id: 'some-application-id-1'});
+    expect(deletedApplication).toEqual(null);
+  });
+
    // You shouldn't be able to add in any field that isn't defined in the schema
   //  xit("inserts application successfully, but the field not defined in schema should be undefined", async () => {
 
