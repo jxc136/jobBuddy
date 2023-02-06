@@ -38,17 +38,15 @@ const Signup = (signup) => {
 
   return (
       
-    <div>
-      <div className="hero">
-        <div className="hero__container">
-        <p className='subheader'>The smart way to job hunt</p>
-        <p className='oneliner'>Streamline your job hunt and land your next < br />
-          career move with jobBuddy< br />
-          
-          </p>
-          </div>
-      </div>
-    
+    <><div className="hero">
+    <div className="hero__container">
+      <p className='subheader'>The smart way to job hunt</p>
+      <p className='oneliner'>Streamline your job hunt and land your next < br />
+        career move with jobBuddy< br />
+        
+        </p>
+    </div>
+    </div>
     <form onSubmit={handleSignUp}>
         <h3>Sign Up</h3>
         <div className="mb-3">
@@ -96,8 +94,8 @@ const Signup = (signup) => {
         <p className="forgot-password text-right">
           Already registered <a href="/sign-in">sign in?</a>
         </p>
-      </form>
-     </div>
+      </form></>
+     
   ) 
 }
 
