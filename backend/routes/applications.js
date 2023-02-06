@@ -5,12 +5,8 @@ const {
 getApplications, 
 getOneApplication,
 createApplication,
-<<<<<<< HEAD
-getApplications,
-deleteApplication
-=======
+deleteApplication,
 updateApplication
->>>>>>> main
 } = require ('../controllers/applicationController')
 
 // Create a new instance of the router
