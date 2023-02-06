@@ -34,7 +34,7 @@ const Home  = () => {
         <div className="subheader-container">
         <h4 className="title-left">My Job Applications</h4>
         </div>
-        <ApplicationsWidget applications={applications} />
+        <ApplicationsWidget applications={applications}  />
       </div>
     </div>
    );

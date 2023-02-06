@@ -21,7 +21,7 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  myApplications: [],
+  myApplications: [{ type: mongoose.Schema.Types.ObjectId, ref: "Application" }],
 });
 
 //static signup method

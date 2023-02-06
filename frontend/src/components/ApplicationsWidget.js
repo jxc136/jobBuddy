@@ -29,6 +29,7 @@ const ApplicationsWidget  = (applications) => {
   }
 
   const handleActionBegin = (args) => {
+    console.log(args.requestType)
     if (args.requestType === "cardRemove") {
       handleRemoving(args)
     }

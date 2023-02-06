@@ -32,6 +32,11 @@ const applicationsSchema = new Schema({
   contact_person: {
     type: String
   },
+
+  user: {
+    type: mongoose.Schema.Types.ObjectId, 
+    ref: 'User'
+   }
  
 });
 
