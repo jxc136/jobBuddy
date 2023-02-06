@@ -1,15 +1,18 @@
 .navbar {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-start;
   height: 60px;
   padding: 0 20px;
   background-color: #bdc8e0;
   color: white;
 }
 
+.navbar-light.navbar-brand {
+  color: #3e5270;
+}
+
 .navbar-brand {
-  font-size: 20px;
+  font-size: 26px;
   font-weight: bold;
   text-decoration: none;
   color: #3e5270;
@@ -21,6 +24,7 @@
   justify-content: flex-start;
   width: 50%;
   flex-wrap: wrap;
+  font-size: 16px;
 }
 
 .navbar-link {
@@ -30,4 +34,7 @@
   font-size: 16px;
   text-decoration: none;
   color: #818fab;
+}
+.nav-link {
+  font-size: 20px;
 }
