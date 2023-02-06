@@ -1,53 +1,55 @@
-import React from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { useState } from 'react'
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { useState } from "react";
 
 const Signup = (signup) => {
-
-  const [firstname, setFirstname] = useState('')
-  const [lastname, setLastname] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [error, setError] = useState('')
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const handleSignUp = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    const user = {firstname, lastname, email, password}
+    const user = { firstname, lastname, email, password };
 
-    const response = await fetch('/users', {
-      method: 'POST',
+    const response = await fetch("/users", {
+      method: "POST",
       body: JSON.stringify(user),
       headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-    const json = await response.json()
+        "Content-Type": "application/json",
+      },
+    });
+    const json = await response.json();
 
     if (!response.ok) {
-      setError(json.error)
+      setError(json.error);
     }
     if (response.ok) {
-      setFirstname('')
-      setLastname('')
-      setEmail('')
-      setPassword('')
-      setError(null)
-      console.log('new User added', json)
+      setFirstname("");
+      setLastname("");
+      setEmail("");
+      setPassword("");
+      setError(null);
+      console.log("new User added", json);
     }
-  } 
+  };
 
   return (
-    <><div className="hero">
-      <div className="hero__container">
+      
+    <div>
+      <div className="hero">
+        <div className="hero__container">
         <p className='subheader'>The smart way to job hunt</p>
         <p className='oneliner'>Streamline your job hunt and land your next < br />
           career move with jobBuddy< br />
           
           </p>
+          </div>
       </div>
-      
-    </div><form onSubmit={handleSignUp}>
+    
+    <form onSubmit={handleSignUp}>
         <h3>Sign Up</h3>
         <div className="mb-3">
           <label>First name</label>
@@ -94,8 +96,9 @@ const Signup = (signup) => {
         <p className="forgot-password text-right">
           Already registered <a href="/sign-in">sign in?</a>
         </p>
-      </form></>
+      </form>
+     </div>
   ) 
 }
 
-export default Signup
+export default Signup;
