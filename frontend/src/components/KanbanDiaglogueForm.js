@@ -10,7 +10,8 @@ import { useEffect, useState } from 'react';
 
 
 function KanbanDialogFormTemplate(applications ) {
-  let categoryData = ['Bookmarked', 'Applying', 'Applied', 'Interview', 'Offer'];
+  let statusCategoryData = ['Bookmarked', 'Applying', 'Applied', 'Interview', 'Offer'];
+  let deadlineCategoryData = ['Application', 'Interview', 'Test', 'Response', 'Offer']
   const [state, setState] = React.useState(extend({}, {}, applications, true));
 
   const onChange = async (args,) => {  
@@ -92,7 +93,7 @@ function KanbanDialogFormTemplate(applications ) {
               <DropDownListComponent
                 id="deadline_type"
                 name="deadline_type"
-                dataSource={categoryData}
+                dataSource={deadlineCategoryData}
                 className="e-field"
                 placeholder="Deadline Type"
                 value={data.deadline_type}
@@ -109,7 +110,7 @@ function KanbanDialogFormTemplate(applications ) {
               <DropDownListComponent
                 id="status"
                 name="status"
-                dataSource={categoryData}
+                dataSource={statusCategoryData}
                 className="e-field"
                 placeholder="Status"
                 value={data.status}
