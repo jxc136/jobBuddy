@@ -12,6 +12,25 @@ const getApplications = async (req, res) => {
   res.status(200).json(application)
 }
 
+// Get ONE application
+
+const getOneApplication = async (req, res) => {
+  const {id} = req.params
+  try {
+
+    const application = await Application.findOne({id})
+    if (application){
+      return res.status(200).json(application)
+    } else {
+      return res.json({mssg: "application not found"})
+    }
+    
+  } catch(error) {
+    res.status(400).json({error: error.message})
+  }
+ 
+}
+
 // Post a single application 
 const createApplication = async (req, res) => {
   const {job_title, application_title, employer, deadline, deadline_type, status, contact_person} = req.body
@@ -36,10 +55,26 @@ const deleteApplication = async (req, res) => {
     console.log(error.message)
     res.status(400).json({error: error.message})
   }
+// Update a single application 
+
+const updateApplication = async (req, res) => {
+  const { id } = req.params
+    
+      const application = await Application.findOneAndUpdate({_id: id}, {
+        ...req.body
+      })
+
+      if (!application) {
+        return res.status(400).json({error: "no such applicatiom in DB"})
+      }
+
+      res.status(200).json(application)
 }
 
 module.exports = {
-  createApplication,
   getApplications,
-  deleteApplication
+  getOneApplication,
+  createApplication,
+  deleteApplication,
+  updateApplication
 };
