@@ -48,3 +48,41 @@ h4 {
   padding: 20px;
   text-align: left;
 }
+
+.hero {
+  height: auto;
+  width: 100%;
+  background-image: url("../public/hero_image.jpg");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero__container {
+  width: 1920px;
+  height: 375px;
+
+}
+
+.hero__container img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  
+}
+
+.subheader { 
+  color: white;
+  padding: 20px;
+  text-align: left !important;
+  font-size: 30px;
+}
+.oneliner { 
+  color: white;
+  padding: 20px;
+  text-align: left !important;
+  font-size: 20px;
+  word-wrap: break-word;
+  font-weight: bold ;
+}

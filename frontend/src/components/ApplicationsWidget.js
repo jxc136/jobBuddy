@@ -11,7 +11,6 @@ registerLicense('Mgo+DSMBaFt/QHRqVVhkVFpFdEBBXHxAd1p/VWJYdVt5flBPcDwsT3RfQF5jS35
 const ApplicationsWidget  = (applications) => {
 
   // Hooks 
-  const [isDragging, setIsDragging] = useState(false)
   const [id, setId] = useState('')
 
   let data = applications.applications
@@ -37,47 +36,7 @@ const ApplicationsWidget  = (applications) => {
             }
   }
 
-  // const handleActionBegin = (args) => {
-  //   if (args.requestType === "card-move") {
-  //     const { data } = args;
-  //     console.log(data._id);
-  //     const card = data.data;
-  //     const status = data.columnKey;
-  //     // update the Status field of the card object
-  //     card.Status = status;
-  //     console.log(card);
-  //     console.log(card.Status)
-  //   }
-  // };
 
-  // const handleSubmit = async (event) => {
-  //   if (event.target.getAttribute("data-button-id") === "cover-image-upload") {
-  //     // do something for button 1
-  //   } else {
-  //     // do something for button 2
-
-  //     event.preventDefault();
-  //     console.log(`image input during handlesubmits is ${imageInput}`);
-  //     if (imageInput === "") {
-  //       console.log("no image input!");
-  //     }
-  //     const userId = window.localStorage.getItem("user_id");
-  //     let response = await fetch(`/users/${userId}`, {
-  //       method: "PATCH",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         Authorization: `Bearer ${token}`,
-  //       },
-  //       body: JSON.stringify({ profilePicture: imageInput }),
-  //     });
-
-  //     if (response.status === 201) {
-  //       setImageInput("");
-  //       setIsUpdated(true);
-  //       console.log(`/users/${userId}`);
-  //     }
-  //   }
-  // };
   const dialogTemplate = (applications) => {
     return <KanbanDialogFormTemplate applications={applications} />;
   }
@@ -90,7 +49,7 @@ const ApplicationsWidget  = (applications) => {
             <ColumnsDirective>
             <ColumnDirective headerText="Bookmarked" keyField="Bookmarked" />
             <ColumnDirective headerText="Applying" keyField="Applying"/>
-            <ColumnDirective headerText="Applying" keyField="Applied"/>
+            <ColumnDirective headerText="Applied" keyField="Applied"/>
             <ColumnDirective headerText="Interview" keyField="Interview"/>
             <ColumnDirective headerText="Offer" keyField="Offer"/>
            
