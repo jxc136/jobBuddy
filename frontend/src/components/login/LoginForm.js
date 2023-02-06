@@ -2,19 +2,17 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
 
-const Signup = (signup) => {
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
+const Login = (login) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleSignUp = async (e) => {
+  const handleSignIn = async (e) => {
     e.preventDefault();
 
-    const user = { firstname, lastname, email, password };
+    const user = { email, password };
 
-    const response = await fetch("/users", {
+    const response = await fetch("/users/login", {
       method: "POST",
       body: JSON.stringify(user),
       headers: {
@@ -27,38 +25,16 @@ const Signup = (signup) => {
       setError(json.error);
     }
     if (response.ok) {
-      setFirstname("");
-      setLastname("");
       setEmail("");
       setPassword("");
-      setError(null);
-      console.log("new User added", json);
+      console.log("User logged in", json);
     }
   };
 
   return (
-    <form onSubmit={handleSignUp}>
-      <h3>Sign Up</h3>
-      <div className="mb-3">
-        <label>First name</label>
-        <input
-          type="text"
-          className="form-control"
-          placeholder="First name"
-          onChange={(e) => setFirstname(e.target.value)}
-          value={firstname}
-        />
-      </div>
-      <div className="mb-3">
-        <label>Last name</label>
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Last name"
-          onChange={(e) => setLastname(e.target.value)}
-          value={lastname}
-        />
-      </div>
+    <form onSubmit={handleSignIn}>
+      <h3>Log in</h3>
+
       <div className="mb-3">
         <label>Email address</label>
         <input
@@ -81,7 +57,7 @@ const Signup = (signup) => {
       </div>
       <div className="d-grid">
         <button type="submit" className="btn btn-primary">
-          Sign Up
+          Log in
         </button>
         {error && <div className="error">{error}</div>}
       </div>
@@ -92,4 +68,4 @@ const Signup = (signup) => {
   );
 };
 
-export default Signup;
+export default Login;

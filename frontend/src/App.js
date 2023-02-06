@@ -1,12 +1,11 @@
-
 // Pages and components
-import Home from './pages/home';
+import Home from "./pages/home";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Signup from "./components/signup/SignupForm";
 import NavBar from "./components/navbar/navbar";
-
+import Login from "./components/login/LoginForm";
 
 function App() {
   return (
@@ -17,11 +16,10 @@ function App() {
       <BrowserRouter>
         <div className="pages">
           <Routes>
-           <Route 
-             path = "/"
-             element={<Home />} 
-             />
-            <Route path="/signup" element={<Signup />}></Route>
+            <Route path="/" element={<Home />} />
+            <Route path="/signup" element={<Signup />} />
+
+            <Route path="/login" element={<Login />} />
           </Routes>
         </div>
       </BrowserRouter>
