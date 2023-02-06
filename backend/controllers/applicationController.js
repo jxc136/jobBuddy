@@ -49,7 +49,7 @@ const deleteApplication = async (req, res) => {
   console.log("Removing application " + application._id);
   // del a doc from DB 
   try {
-    await Application.deleteOne(application)
+    await Application.deleteOne({_id: application._id})
     res.status(200).json({_id: application._id})
   } catch(error) {
     console.log(error.message)
