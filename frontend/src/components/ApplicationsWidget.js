@@ -13,9 +13,7 @@ const ApplicationsWidget  = (applications) => {
 
   // Hooks 
   const [id, setId] = useState('')
-  // const filteredApplications = applications.applications.filter(application => application._id === currentUser);
   const currentUserApps = applications.applications
-  // const currentUserApps = applications.applications.filter(application => application.user._id == currentUser)
   let data = applications.applications
 
   const handleRemoving = async (args) => {
@@ -71,7 +69,7 @@ const ApplicationsWidget  = (applications) => {
        <KanbanComponent id="kanban" keyField="status" dataSource={data} cardSettings={{ contentField: "employer", tagsField: ('deadline_type', 'deadline'), headerField: "job_title" }} dragStart={handleDragStart.bind(this)} actionBegin={handleActionBegin} dragStop={handleDrop} dialogSettings={{ template: dialogTemplate.bind(this) }}>
 
             <ColumnsDirective>
-            <ColumnDirective headerText="Bookmarked" keyField="Bookmarked" />
+            <ColumnDirective headerText="Bookmarked"     />
             <ColumnDirective headerText="Applying" keyField="Applying"/>
             <ColumnDirective headerText="Applied" keyField="Applied"/>
             <ColumnDirective headerText="Interview" keyField="Interview"/>
