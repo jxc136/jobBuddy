@@ -6,7 +6,7 @@ describe('insert', () => {
   let db;
 
   beforeAll(async () => {
-    connection = await MongoClient.connect(process.env.MONGO_URI, {
+    connection = await MongoClient.connect('mongodb://127.0.0.1:27017/jobBuddy_test', {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });

@@ -13,8 +13,8 @@ describe('practice tests', () => {
     cy.contains('Sign Up')
     cy.get(':nth-child(2) > .form-control').type('Bing')
     cy.get(':nth-child(3) > .form-control').type('Bunny')
-    cy.get(':nth-child(4) > .form-control').type('bunbun@example.com')
-    cy.get(':nth-child(5) > .form-control').type('FfGg44$$')
-    
+    cy.get(':nth-child(4) > .form-control').type('bingbun@example.com')
+    cy.get(':nth-child(5) > .form-control').type('AbCd12**')
+    cy.get('.btn').click()
   })
 })

@@ -1,7 +1,9 @@
 const {MongoClient} = require('mongodb');
 const mongoose = require("mongoose");
 const request = require("supertest");
-const seeds = require("../seeds")
+const { seedDb } = require("../seeds")
+
+
 require('dotenv').config();
 
 describe('users', () => {
@@ -9,15 +11,19 @@ describe('users', () => {
   let db;
 
   beforeAll(async () => {
-    connection = await MongoClient.connect(process.env.MONGO_URI, {
+    // await seedDb()
+    connection = await MongoClient.connect('mongodb://127.0.0.1:27017/jobBuddy_test', {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
 
-    db = await connection.db(globalThis.jobBuddy);
-    const applications = await db.collection('users');
-    await applications.drop(() => {   
-    });
+    // db = await connection.db(globalThis.jobBuddy);
+    // const users = await db.collection('users');
+   
+    // await users.drop(() => {   
+    
+    // });
+   
   });
 
   afterAll(async () => {
@@ -25,6 +31,18 @@ describe('users', () => {
   });
 
   describe('get all users', () => {
+
+    it('returns all users in the database', async () => {
+      const users = connection.collection('users')
+      // const mockUsers = [{_id: 'some-user-id', firstname: 'Paddington', lastname: "Bear"}, {_id: 'some-other-user-id', firstname: "The", lastname: 'Gruffalo'}]
+     
+      user = {firstname: 'Paddington', lastname: "Bear", email: "pads@example.com", password: "AaBa22££"}
+      await users.insertOne(user);
+      // await users.insertOne(mockUsers[1]);
+      const allUsers = users.find({});
+      console.log("all users" + allUsers)
+      expect(allUsers).toContain(user);
+    });
     it('finds a user in the database', () => {
       const users = db.collection('users')
       console.log('users' + users.find({})[0])
@@ -32,15 +50,7 @@ describe('users', () => {
     });
 
 
-    it('returns all users in the database', async () => {
-      const users = db.collection('users')
-      const mockUsers = [{_id: 'some-user-id', firstname: 'Paddington', lastname: "Bear"}, {_id: 'some-other-user-id', firstname: "The", lastname: 'Gruffalo'}]
-     
-      await users.insertOne(mockUsers[0]);
-      await users.insertOne(mockUsers[1]);
-      const allUsers = users.find({});
-      expect(allUsers).toEqual(mockUsers);
-    })
+  
   })
   describe('insert', () => {
 
