@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ApplicationsWidget from "../components/ApplicationsWidget";
+const currentUser = window.localStorage.getItem("user_id"); 
 
 const Home  = () => {
   const [applications, setApplications] = useState(null)
@@ -8,7 +9,10 @@ const Home  = () => {
     const response = await fetch('/api/applications')
     const json = await response.json()
     if (response.ok) {
-      json.forEach(application => {
+      console.log(currentUser)
+      console.log(json[0].user._id)
+     const filteredJson = json.filter(application => application.user._id === `${currentUser}`)
+     filteredJson.forEach(application => {
         // Create a new Date object from the deadline value
         const deadline = new Date(application.deadline);
         // Format the deadline as DD-MM-YYYY
@@ -16,7 +20,8 @@ const Home  = () => {
         // Concatenate the deadline type to the formatted deadline
         application.deadline = ` ${application.deadline_type} Deadline: ${formattedDeadline}`;
       });
-      setApplications(json)
+      console.log(filteredJson)
+      setApplications(filteredJson)
      
     }
     }
@@ -24,7 +29,7 @@ const Home  = () => {
     fetchApplications()
   }, [])
 
-
+  // const currentUserApps = applications.applications.filter(application => application.user._id === currentUser)
   
 
   return ( 
