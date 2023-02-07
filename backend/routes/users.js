@@ -17,7 +17,6 @@ router.get('/:id', getUserById)
 
 router.post("/", createUser);
 
-
 // login route
 router.post("/login", loginUser);
 

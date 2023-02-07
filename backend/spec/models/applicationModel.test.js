@@ -6,7 +6,7 @@ describe('insert', () => {
   let db;
 
   beforeAll(async () => {
-    connection = await MongoClient.connect(process.env.MONG_URI, {
+    connection = await MongoClient.connect(process.env.MONGO_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
@@ -29,6 +29,7 @@ describe('insert', () => {
     const insertedApplication = await applications.findOne({_id: 'some-application-id'});
     expect(insertedApplication).toEqual(mockApplication);
   });
+ 
 
   it('should insert and delete a doc', async () => {
     const applications = db.collection('applications');
