@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ApplicationsWidget from "../components/ApplicationsWidget";
-import Example from "../components/createApplication/test";
+import Modal from "../components/createApplication/modal";
 
 const Home = () => {
   const [applications, setApplications] = useState(null);
@@ -34,7 +34,7 @@ const Home = () => {
           <h4 className="title-left">My Job Applications</h4>
         </div>
         {/* <AppForm /> */}
-        <Example />
+        <Modal />
         <ApplicationsWidget applications={applications} />
       </div>
     </div>

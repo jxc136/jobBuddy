@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import ReactModal from "react-modal";
 import AppForm from "./ApplicationForm";
+// import "./modal.css";
 
-function Example() {
+function Modal() {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div>
@@ -18,4 +19,4 @@ function Example() {
     </div>
   );
 }
-export default Example;
+export default Modal;
