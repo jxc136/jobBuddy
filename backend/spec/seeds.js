@@ -36,4 +36,4 @@ const Application = require('../models/applicationModel');
   .then(() => mongoose.connection.close())
   .catch((error) => console.log(error));
 
-  module.exports = {seedDb};
+  // module.exports = {seedDb};
