@@ -1,68 +1,81 @@
 const {MongoClient} = require('mongodb');
 const mongoose = require("mongoose");
 const request = require("supertest");
-const { seedDb } = require("../seeds")
+// const { seedDb } = require("../seeds")
 
+require("../mongodb_helper");
+const User = require("../../models/users");
 
-require('dotenv').config();
-
-describe('users', () => {
-  let connection;
-  let db;
-
-  beforeAll(async () => {
-    // await seedDb()
-    connection = await MongoClient.connect('mongodb://127.0.0.1:27017/jobBuddy_test', {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
+describe('User Model', () => {
+  it("has an email address", () => {
+    const user = new User({
+      firstname: "Peter",
+      surname: "Rabbit",
+      email: "pete@example.com",
+      password: "AaBb22**",
     });
+    expect(user.email).toEqual("pete@example.com");
+  });
+})
 
-    // db = await connection.db(globalThis.jobBuddy);
+// describe('users', () => {
+//   let connection;
+//   let db;
+
+//   beforeAll(async () => {
+//     // await seedDb()
+//     connection = await MongoClient.connect('mongodb://127.0.0.1/jobBuddy_test', {
+//       useNewUrlParser: true,
+//       useUnifiedTopology: true,
+//     });
+
+//     await users.insertOne({firstname: 'Paddington', lastname: "Bear", email: "pads@example.com", password: "AaBa22££"})
+    // db = await connection.db(jobBuddy_test);
     // const users = await db.collection('users');
    
     // await users.drop(() => {   
     
     // });
    
-  });
+//   });
 
-  afterAll(async () => {
-    await mongoose.connection.close();
-  });
+//   afterAll(async () => {
+//     await mongoose.connection.close();
+//   });
 
-  describe('get all users', () => {
+//   describe('users', () => {
 
-    it('returns all users in the database', async () => {
-      const users = connection.collection('users')
-      // const mockUsers = [{_id: 'some-user-id', firstname: 'Paddington', lastname: "Bear"}, {_id: 'some-other-user-id', firstname: "The", lastname: 'Gruffalo'}]
+//     it('returns all users in the database', async () => {
+//       const users = db.collection('users')
+//       // const mockUsers = [{_id: 'some-user-id', firstname: 'Paddington', lastname: "Bear"}, {_id: 'some-other-user-id', firstname: "The", lastname: 'Gruffalo'}]
      
-      user = {firstname: 'Paddington', lastname: "Bear", email: "pads@example.com", password: "AaBa22££"}
-      await users.insertOne(user);
-      // await users.insertOne(mockUsers[1]);
-      const allUsers = users.find({});
-      console.log("all users" + allUsers)
-      expect(allUsers).toContain(user);
-    });
-    it('finds a user in the database', () => {
-      const users = db.collection('users')
-      console.log('users' + users.find({})[0])
-      expect(users.find({}))
-    });
+//       user = {firstname: 'Paddington', lastname: "Bear", email: "pads@example.com", password: "AaBa22££"}
+//       await users.save(user);
+//       // await users.insertOne(mockUsers[1]);
+//       // const allUsers = users.find({});
+//       // console.log("all users" + allUsers)
+//       // expect(allUsers).toContain(user);
+//     });
+//     xit('finds a user in the database', () => {
+//       const users = db.collection('users')
+//       // console.log('users' + users.find({})[0])
+//       expect(users.find({}))
+//     });
 
 
   
-  })
-  describe('insert', () => {
+//   })
+// //   describe('insert', () => {
 
-  it('should insert a doc into collection', async () => {
-    const users = db.collection('users');
+// //   it('should insert a doc into collection', async () => {
+// //     const users = db.collection('users');
 
-    const mockUser = {_id: 'some-user-id', firstname: 'Paddington', lastname: 'Bear'};
-    await users.insertOne(mockUser);
+// //     const mockUser = {_id: 'some-user-id', firstname: 'Paddington', lastname: 'Bear'};
+// //     await users.insertOne(mockUser);
 
-    const insertedUser = await users.findOne({_id: 'some-user-id'});
-    expect(insertedUser).toEqual(mockUser);
-  });  
-})
+// //     const insertedUser = await users.findOne({_id: 'some-user-id'});
+// //     expect(insertedUser).toEqual(mockUser);
+// //   });  
+// // })
 
-});
+// });

@@ -23,8 +23,10 @@ describe('insert', () => {
   it('should insert a doc into collection', async () => {
     const applications = db.collection('applications');
 
-    const mockApplication = {_id: 'some-application-id', job_title: 'Apple'};
-    await applications.insertOne(mockApplication);
+    const mockApplication1 = {_id: 'some-application-id', job_title: 'Apple Engineer'};
+    const mockApplication2 = {_id: 'some-application-id', job_title: 'React Developer'};
+    await applications.insertOne(mockApplication1);
+    await applications.insertOne(mockApplication2);
 
     const insertedApplication = await applications.findOne({_id: 'some-application-id'});
     expect(insertedApplication).toEqual(mockApplication);
