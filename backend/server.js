@@ -25,7 +25,7 @@ app.use("/users", userRoutes);
 
 // Connect to Database
 mongoose
-  .connect(process.env.MONG_URI)
+  .connect(process.env.MONGO_URI)
   .then(() => {
     // Only listen for requests when connected
     app.listen(process.env.PORT, () => {
