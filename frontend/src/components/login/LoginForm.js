@@ -28,6 +28,9 @@ const Login = (login) => {
       setEmail("");
       setPassword("");
       console.log("User logged in", json);
+      window.localStorage.setItem("token", json.token);
+      window.localStorage.setItem("user_id", json.user_id);
+      console.log(json);
     }
   };
 

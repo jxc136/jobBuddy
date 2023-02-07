@@ -2,14 +2,22 @@ import { useEffect, useState } from "react";
 import ApplicationsWidget from "../components/ApplicationsWidget";
 import Modal from "../components/createApplication/modal";
 
+const currentUser = window.localStorage.getItem("user_id");
+
 const Home = () => {
   const [applications, setApplications] = useState(null);
   const getApplications = useEffect(() => {
     const fetchApplications = async () => {
       const response = await fetch("/api/applications");
       const json = await response.json();
+      console.log(`json = ${json}`);
       if (response.ok) {
-        json.forEach((application) => {
+        console.log(currentUser);
+
+        const filteredJson = json.filter(
+          (application) => application.user._id === `${currentUser}`
+        );
+        filteredJson.forEach((application) => {
           // Create a new Date object from the deadline value
           const deadline = new Date(application.deadline);
           // Format the deadline as DD-MM-YYYY
@@ -17,9 +25,11 @@ const Home = () => {
             deadline.getMonth() + 1
           }-${deadline.getFullYear()}`;
           // Concatenate the deadline type to the formatted deadline
-          application.deadline = ` ${application.deadline_type} Deadline: ${formattedDeadline}`;
+          application.deadline = `${application.deadline_type} Deadline: ${formattedDeadline}`;
         });
-        setApplications(json);
+        console.log(`filteredJson = ${filteredJson}`);
+        setApplications(filteredJson);
+        console.log(`applications = ${applications}`);
       }
     };
 

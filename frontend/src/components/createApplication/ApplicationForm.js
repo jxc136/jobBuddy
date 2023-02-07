@@ -6,11 +6,25 @@ const AppForm = () => {
   const [deadline, setDeadline] = useState("");
   const [contact_person, setContact] = useState("");
   const [error, setError] = useState(null);
+  const [myUser, setMyUser] = useState("");
+  const [status, setStatus] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const createApplication = { job_title, employer, contact_person };
+    const currentUser = window.localStorage.getItem("user_id");
+
+    setMyUser(`${currentUser}`);
+    console.log(currentUser);
+    console.log(myUser);
+
+    const createApplication = {
+      job_title,
+      employer,
+      contact_person,
+      user: currentUser,
+      status,
+    };
 
     const response = await fetch("/api/applications", {
       method: "POST",
@@ -29,6 +43,7 @@ const AppForm = () => {
       setEmployer("");
       setDeadline("");
       setContact("");
+      setStatus("");
       setError(null);
       console.log("new application added", json);
     }
@@ -64,6 +79,13 @@ const AppForm = () => {
         type="string"
         onChange={(e) => setContact(e.target.value)}
         value={contact_person}
+      />
+
+      <label>Status:</label>
+      <input
+        type="string"
+        onChange={(e) => setStatus(e.target.value)}
+        value={status}
       />
 
       <button>Add application</button>

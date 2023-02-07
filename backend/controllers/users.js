@@ -16,10 +16,9 @@ const getUsers = async (req, res) => {
 const getUserById = async (req, res) => {
   const { id } = req.params;
 
-  const user = await User.findOne({id})
+  const user = await User.findOne({ id });
   res.status(200).json(user);
-}
-
+};
 
 //signup user
 const createUser = async (req, res) => {
@@ -47,7 +46,7 @@ const loginUser = async (req, res) => {
 
     // create a token
     const token = createToken(user._id);
-    res.status(201).json({ email, token });
+    res.status(201).json({ email, token, user_id: user._id });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }

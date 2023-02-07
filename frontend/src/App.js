@@ -6,7 +6,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Signup from "./components/signup/SignupForm";
 import NavBar from "./components/navbar/navbar";
 import Login from "./components/login/LoginForm";
-import Modal from "./components/createApplication/modal";
 
 function App() {
   return (
