@@ -15,6 +15,7 @@ const ApplicationsWidget  = (applications) => {
   const [id, setId] = useState('')
   const currentUserApps = applications.applications
   let data = applications.applications
+  console.log(data)
 
   const handleRemoving = async (args) => {
     const response = await fetch('/api/applications/deleteApplication', {
@@ -69,7 +70,7 @@ const ApplicationsWidget  = (applications) => {
        <KanbanComponent id="kanban" keyField="status" dataSource={data} cardSettings={{ contentField: "employer", tagsField: ('deadline_type', 'deadline'), headerField: "job_title" }} dragStart={handleDragStart.bind(this)} actionBegin={handleActionBegin} dragStop={handleDrop} dialogSettings={{ template: dialogTemplate.bind(this) }}>
 
             <ColumnsDirective>
-            <ColumnDirective headerText="Bookmarked"     />
+            <ColumnDirective headerText="Bookmarked" keyField="Bookmarked"    />
             <ColumnDirective headerText="Applying" keyField="Applying"/>
             <ColumnDirective headerText="Applied" keyField="Applied"/>
             <ColumnDirective headerText="Interview" keyField="Interview"/>

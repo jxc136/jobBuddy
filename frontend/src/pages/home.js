@@ -8,21 +8,22 @@ const Home  = () => {
     const fetchApplications = async() => {
     const response = await fetch('/api/applications')
     const json = await response.json()
+    console.log(`json = ${json}`)
     if (response.ok) {
       console.log(currentUser)
-      console.log(json[0].user._id)
-     const filteredJson = json.filter(application => application.user._id === `${currentUser}`)
+      
+      const filteredJson = json.filter(application => application.user._id === `${currentUser}`)
      filteredJson.forEach(application => {
         // Create a new Date object from the deadline value
         const deadline = new Date(application.deadline);
         // Format the deadline as DD-MM-YYYY
         const formattedDeadline = `${deadline.getDate()}-${deadline.getMonth() + 1}-${deadline.getFullYear()}`;
         // Concatenate the deadline type to the formatted deadline
-        application.deadline = ` ${application.deadline_type} Deadline: ${formattedDeadline}`;
+        application.deadline = `${application.deadline_type} Deadline: ${formattedDeadline}`;
       });
-      console.log(filteredJson)
+      console.log(`filteredJson = ${filteredJson}`)
       setApplications(filteredJson)
-     
+      console.log(`applications = ${applications}`)
     }
     }
 
