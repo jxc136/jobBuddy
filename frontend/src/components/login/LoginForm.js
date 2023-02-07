@@ -28,6 +28,11 @@ const Login = (login) => {
       setEmail("");
       setPassword("");
       console.log("User logged in", json);
+      console.log(json.token)
+      console.log(json.user_id)
+      window.localStorage.setItem("token", json.token)
+      window.localStorage.setItem("user_id", json.user_id)
+      
     }
   };
 
