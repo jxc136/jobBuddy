@@ -1,11 +1,13 @@
-const { app, server } = require("../../server");
+const { app, serverPromise } = require("../../server");
 const request = require("supertest");
 require("../mongodb_helper");
 const Application = require('../../models/applicationModel')
 
 describe("/applications", () => {
   afterAll((done) => {
-    server.close(done)
+    serverPromise.then((server) => {
+      server.close(done)
+    })
   })
 
   describe("create a new job record when job title is provided", () => {

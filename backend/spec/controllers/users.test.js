@@ -1,4 +1,4 @@
-const { app, server } = require("../../server");
+const { app, serverPromise } = require("../../server");
 const request = require("supertest");
 require("../mongodb_helper");
 const User = require('../../models/users.js')
@@ -11,7 +11,9 @@ const {
 
 describe("/users", () => {
   afterAll((done) => {
-    server.close(done)
+    serverPromise.then((server) => {
+      server.close(done)
+    })
   })
 
   describe("create a new user record when firstname, lastname, email and password are provided", () => {
