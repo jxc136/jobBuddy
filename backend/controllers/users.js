@@ -23,7 +23,7 @@ const getUserById = async (req, res) => {
 
 //signup user
 const createUser = async (req, res) => {
-  console.log('request: ' + JSON.stringify(req))
+  
   const { firstname, lastname, email, password } = req.body;
   // add doc to db
   try {
