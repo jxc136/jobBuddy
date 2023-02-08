@@ -1,9 +1,4 @@
-const {MongoClient} = require('mongodb');
-const mongoose = require("mongoose");
-const request = require("supertest");
-// const { seedDb } = require("../seeds")
 
-// require("../mongodb_helper");
 const User = require("../../models/users");
 
 describe('User Model', () => {

@@ -11,8 +11,8 @@ beforeAll( (done) => {
   var db = mongoose.connection;
   const users = db.collection('users')
   users.deleteMany({})
-  // const applications = db.collection('applications')
-  // applications.deleteMany({})
+  const applications = db.collection('applications')
+  applications.deleteMany({})
   db.on("error", console.error.bind(console, "MongoDB connection error:"));
   db.on("open", function () {
     done();

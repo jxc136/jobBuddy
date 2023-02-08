@@ -1,20 +1,22 @@
-const server = require("../../server");
+const { app, server } = require("../../server");
 const request = require("supertest");
 require("../mongodb_helper");
 const Application = require('../../models/applicationModel')
 
 describe("/applications", () => {
-  // beforeEach( async () => {
-  //   await User.deleteMany({});
+  afterAll((done) => {
+    server.close(done)
+  })
 
   describe("create a new job record when job title is provided", () => {
     test("the response code is 200", async () => {
 
-      let response = await request(server)
+      let response = await request(app)
           .post("/api/applications")
           .send({job_title: "React Developer"
           })
-      expect(response.statusCode).toBe(200)
+          .expect(200)
+      
   });
 })
 })
