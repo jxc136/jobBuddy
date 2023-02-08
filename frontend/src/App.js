@@ -18,7 +18,7 @@ function App() {
         </header>
         <div className="pages">
           <Routes>
-            <Route path="/" element={<Home navigate={ navigate}/>}/>
+            <Route path="/" element={user?<Home navigate={ navigate}/> : <Navigate to="/login"></Navigate> }/>
             <Route path="/signup" element={!user ? <Signup navigate={ navigate } /> : <Navigate to="/"></Navigate>} />
             <Route path="/login" element={!user ? <Login navigate={ navigate } /> : <Navigate to="/"></Navigate>} />
           </Routes>

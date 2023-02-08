@@ -34,7 +34,7 @@ const Login = ({navigate}) => {
       console.log(json.user_id)
       window.localStorage.setItem("token", json.token)
       window.localStorage.setItem("user_id", json.user_id)
-      
+      navigate('/');
     }
   };
  
