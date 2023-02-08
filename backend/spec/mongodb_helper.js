@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 
-beforeAll(function (done) {
+beforeAll((done) =>  {
   mongoose.connect("mongodb://127.0.0.1/jobBuddy_test", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -8,6 +8,8 @@ beforeAll(function (done) {
 
 
   var db = mongoose.connection;
+  const users = db.collection('users')
+  users.deleteMany({})
   db.on("error", console.error.bind(console, "MongoDB connection error:"));
   db.on("open", function () {
     done();

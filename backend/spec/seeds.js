@@ -30,10 +30,10 @@ const Application = require('../models/applicationModel');
     await User.signup(seedUser[2]);
   }
 
-  mongoose
-  .connect('mongodb://127.0.0.1:27017/jobBuddy_test')
-  .then(() => seedDb())
-  .then(() => mongoose.connection.close())
-  .catch((error) => console.log(error));
+  // mongoose
+  // .connect('mongodb://127.0.0.1:27017/jobBuddy_test')
+  // .then(() => seedDb())
+  // .then(() => mongoose.connection.close())
+  // .catch((error) => console.log(error));
 
-  // module.exports = {seedDb};
+  module.exports = {seedDb};
