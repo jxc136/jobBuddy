@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react';
 
 
 
-function KanbanDialogFormTemplate(applications ) {
+function KanbanDialogFormTemplate({applications, updated, setUpdated, getApplications} ) {
   let statusCategoryData = ['Bookmarked', 'Applying', 'Applied', 'Interview', 'Offer', 'Unsuccessful'];
   let deadlineCategoryData = ['Application', 'Interview', 'Test', 'Response', 'Offer']
   const [state, setState] = React.useState(extend({}, {}, applications, true));
@@ -17,12 +17,12 @@ function KanbanDialogFormTemplate(applications ) {
   const onChange = async (args,) => {  
     let key = await args.target.name;
     let value = await args.target.value;
-    console.log(`id = ${applications.applications._id}`)
+    console.log(`id = ${applications._id}`)
     console.log(`key = ${key}, value = ${value}`)
     setState({ [key]: value });
         console.log(state);
       
-        let response = fetch(`/api/applications/${applications.applications._id}`, {
+        let response = fetch(`/api/applications/${applications._id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -30,12 +30,12 @@ function KanbanDialogFormTemplate(applications ) {
       body: JSON.stringify({ [key]: value }),
     });
     if (response.status === 200) {  
-      console.log(`/api/applications/${applications.applications._id}`);
+      console.log(`/api/applications/${applications._id}`);
     }
     
   }
 
-  let data = applications.applications;
+  let data = applications;
   return (
     <div>
       <table>
@@ -135,13 +135,12 @@ function KanbanDialogFormTemplate(applications ) {
           </tr>
           
           <tr>
-            <td className="checklist">Interview Checklist</td>
+            <td className="checklist">Checklist</td>
             <td>
               <CheckBoxComponent label="Cover Letter" />
-              <CheckBoxComponent label="CV customised" />
-              <CheckBoxComponent label="Interview answers prepared" />
-              <CheckBoxComponent label="CheckBox" />
-              <CheckBoxComponent label="CheckBox" />
+              <CheckBoxComponent label="CV Customised" />
+              <CheckBoxComponent label="Interview Prep" />
+        
             </td>
           </tr>
           

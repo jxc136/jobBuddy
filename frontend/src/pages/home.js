@@ -6,6 +6,7 @@ const Home  = ({navigate}) => {
   
   const [token, setToken] = useState(window.localStorage.getItem("token"));
   const [applications, setApplications] = useState(null)
+  const [updated, setUpdated] = useState(false)
   const currentUser = window.localStorage.getItem("user_id");
 
   const getApplications = useEffect(() => {
@@ -28,12 +29,13 @@ const Home  = ({navigate}) => {
         console.log(`filteredJson = ${filteredJson}`)
         setApplications(filteredJson)
         console.log(`applications = ${applications}`)
+        setUpdated(false)
         }
         }
     
         fetchApplications()
     
-  }, [])
+  }, [updated])
 
   // const currentUserApps = applications.applications.filter(application => application.user._id === currentUser)
   
@@ -45,7 +47,7 @@ const Home  = ({navigate}) => {
         <div className="subheader-container">
         <h4 className="title-left">My Job Applications</h4>
         </div>
-        <ApplicationsWidget applications={applications}  />
+        <ApplicationsWidget applications={applications} updated={updated} setUpdated={setUpdated} getApplications={getApplications}  />
       </div>
     </div>
    );
