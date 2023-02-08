@@ -32,7 +32,6 @@ function KanbanDialogFormTemplate({applications, updated, setUpdated, getApplica
     if (response.status === 200) {  
       console.log(`/api/applications/${applications._id}`);
     }
-    
   }
 
   let data = applications;

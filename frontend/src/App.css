@@ -33,13 +33,13 @@
 }
 
 .App-link {
-  color: #0B65C2;
+  color: #1e6a9c;
 }
 
 h2 {
-  color: #0B65C2;
+  color: #1e6a9c;
   margin: 0;
-  padding: 20px;
+  padding: 10px;
   background-color: #F5D77F;
   
 }
@@ -48,7 +48,7 @@ h4 {
   color: #0B65C2;
   padding: 20px;
   text-align: left;
-  text-decoration-line: #F5D77F
+  
 }
 
 .hero {

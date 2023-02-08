@@ -31,10 +31,17 @@ const ApplicationsWidget  = ({applications, updated, setUpdated, getApplications
     }
   }
 
+  const handleCardChange = async (args) => {
+    setUpdated(true)
+  }
+
   const handleActionBegin = (args) => {
-    console.log(args.requestType)
+    console.log(`request type = ${args.requestType}`)
     if (args.requestType === "cardRemove") {
       handleRemoving(args)
+    }
+    else if (args.requestType === "cardChange"){
+      handleCardChange(args)
     }
   };
   const handleDragStart = (event) => {

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ApplicationsWidget from "../components/ApplicationsWidget";
+import Footer from "../components/footer";
 
 
 const Home  = ({navigate}) => {
@@ -50,6 +51,7 @@ const Home  = ({navigate}) => {
         <ApplicationsWidget applications={applications} updated={updated} setUpdated={setUpdated} getApplications={getApplications}  />
       </div>
     </div>
+
    );
 }
  
