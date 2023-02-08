@@ -24,6 +24,8 @@ app.use("/api/applications", applicationRoutes);
 app.use("/users", userRoutes);
 
 // Connect to Database
+if(process.env.MONGO_URI === "mongodb+srv://jobBuddyAdmin:jobBuddyPass33@jobbuddy.6d6wb5p.mongodb.net/?retryWrites=true&w=majority") {
+console.log('MONGO_URI:' + process.env.MONGO_URI)
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
@@ -33,6 +35,9 @@ mongoose
     });
   })
   .catch((error) => console.log(error));
+}
 
 // Ensure that application schema has been created
 console.log(Application);
+
+module.exports = app
