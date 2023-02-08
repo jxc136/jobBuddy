@@ -124,8 +124,8 @@ function KanbanDialogFormTemplate(applications ) {
 
             <td>
               <TextBoxComponent
-                id="Contact"
-                name="Contact"
+                id="contact_person"
+                name="contact_person"
                 className="e-field"
                 placeholder="Contact"
                 value={data.contact_person}
