@@ -1,0 +1,79 @@
+.user-documents-table {
+  width: 50%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.user-document-cell {
+  padding: 10px;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f2f2f2;
+}
+
+.user-document-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  text-align: center;
+}
+
+.Home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.Applications {
+  width: 80%;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.profile-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.title-left {
+  align-self: flex-start;
+  font-size: 24px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.user-info-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.change-pic {
+  background-color: #f2f2f2;
+  border: 2px solid #0B65C2;;
+  color: #0B65C2;;
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  transition: all 0.3s ease;
+  }
+  
+  .change-pic:hover {
+  background-color: #0B65C2;;
+  color: white;
+  cursor: pointer;
+  }

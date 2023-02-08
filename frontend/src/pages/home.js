@@ -1,33 +1,38 @@
 import { useEffect, useState } from "react";
 import ApplicationsWidget from "../components/ApplicationsWidget";
-const currentUser = window.localStorage.getItem("user_id"); 
 
-const Home  = () => {
+
+const Home  = ({navigate}) => {
+  
+  const [token, setToken] = useState(window.localStorage.getItem("token"));
   const [applications, setApplications] = useState(null)
+  const currentUser = window.localStorage.getItem("user_id");
+
   const getApplications = useEffect(() => {
-    const fetchApplications = async() => {
-    const response = await fetch('/api/applications')
-    const json = await response.json()
-    console.log(`json = ${json}`)
-    if (response.ok) {
-      console.log(currentUser)
-      
-      const filteredJson = json.filter(application => application.user._id === `${currentUser}`)
-     filteredJson.forEach(application => {
+  
+      const fetchApplications = async() => {
+        const response = await fetch('/api/applications')
+        const json = await response.json()
+        console.log(`json = ${json}`)
+        if (response.ok) {
+        console.log(currentUser) 
+        const filteredJson = json.filter(application => application.user._id === `${currentUser}`)
+        filteredJson.forEach(application => {
         // Create a new Date object from the deadline value
         const deadline = new Date(application.deadline);
         // Format the deadline as DD-MM-YYYY
         const formattedDeadline = `${deadline.getDate()}-${deadline.getMonth() + 1}-${deadline.getFullYear()}`;
         // Concatenate the deadline type to the formatted deadline
         application.deadline = `${application.deadline_type} Deadline: ${formattedDeadline}`;
-      });
-      console.log(`filteredJson = ${filteredJson}`)
-      setApplications(filteredJson)
-      console.log(`applications = ${applications}`)
-    }
-    }
-
-    fetchApplications()
+        });
+        console.log(`filteredJson = ${filteredJson}`)
+        setApplications(filteredJson)
+        console.log(`applications = ${applications}`)
+        }
+        }
+    
+        fetchApplications()
+    
   }, [])
 
   // const currentUserApps = applications.applications.filter(application => application.user._id === currentUser)
