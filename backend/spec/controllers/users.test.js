@@ -39,5 +39,4 @@ describe("/users", () => {
     //   // expect(response1.statusCode).toBe(200)
     //   expect(response2.statusCode).toBe(400)
     });
-  })
-})
+  });
