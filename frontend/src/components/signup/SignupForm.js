@@ -33,6 +33,7 @@ const Signup = ({navigate}) => {
       setPassword("");
       setError(null);
       console.log("new User added", json);
+      navigate('/login');
     }
   };
 
