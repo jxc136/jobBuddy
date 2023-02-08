@@ -12,7 +12,6 @@ const {
 describe("/users", () => {
   // beforeEach( async () => {
   //   await User.deleteMany({});
-  });
 
   describe("create a new user record when firstname, lastname, email and password are provided", () => {
     test("the response code is 201", async () => {
@@ -25,4 +24,5 @@ describe("/users", () => {
           password: "AaBb22**"})
       expect(response.statusCode).toBe(200)
   });
+})
 })
