@@ -23,8 +23,8 @@ const getUserById = async (req, res) => {
 
 //signup user
 const createUser = async (req, res) => {
+  console.log('request: ' + JSON.stringify(req))
   const { firstname, lastname, email, password } = req.body;
-
   // add doc to db
   try {
     const user = await User.signup({ firstname, lastname, email, password });
@@ -32,7 +32,7 @@ const createUser = async (req, res) => {
     // create a token
     const token = createToken(user._id);
 
-    res.status(200).json({ email, token, });
+    res.status(200).json({ email, token });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
