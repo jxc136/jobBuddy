@@ -10,7 +10,7 @@ import { useEffect, useState } from 'react';
 
 
 function KanbanDialogFormTemplate(applications ) {
-  let statusCategoryData = ['Bookmarked', 'Applying', 'Applied', 'Interview', 'Offer'];
+  let statusCategoryData = ['Bookmarked', 'Applying', 'Applied', 'Interview', 'Offer', 'Unsuccessful'];
   let deadlineCategoryData = ['Application', 'Interview', 'Test', 'Response', 'Offer']
   const [state, setState] = React.useState(extend({}, {}, applications, true));
 
