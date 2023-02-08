@@ -11,7 +11,7 @@ function NavBar() {
           <Nav className="ml-auto">
             <Nav.Link href="/login">login</Nav.Link>
             <Nav.Link href="/signup">sign-up</Nav.Link>
-            <Nav.Link href="#help">help</Nav.Link>
+          
           </Nav>
         </Navbar.Collapse>
      
