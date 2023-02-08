@@ -2,11 +2,13 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
 
-const Login = (login) => {
+const Login = ({navigate}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-
+  const [token, setToken] = useState(window.localStorage.getItem("token"));
+ 
+  
   const handleSignIn = async (e) => {
     e.preventDefault();
 
@@ -35,7 +37,7 @@ const Login = (login) => {
       
     }
   };
-
+ 
   return (
     <form onSubmit={handleSignIn}>
       <h3>Log in</h3>
@@ -72,5 +74,4 @@ const Login = (login) => {
     </form>
   );
 };
-
 export default Login;
