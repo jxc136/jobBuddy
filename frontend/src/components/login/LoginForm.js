@@ -2,11 +2,13 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
 
-const Login = (login) => {
+const Login = ({navigate}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-
+  const [token, setToken] = useState(window.localStorage.getItem("token"));
+ 
+  
   const handleSignIn = async (e) => {
     e.preventDefault();
 
@@ -32,10 +34,10 @@ const Login = (login) => {
       console.log(json.user_id)
       window.localStorage.setItem("token", json.token)
       window.localStorage.setItem("user_id", json.user_id)
-      
+      navigate('/');
     }
   };
-
+ 
   return (
     <form onSubmit={handleSignIn}>
       <h3>Log in</h3>
@@ -67,10 +69,9 @@ const Login = (login) => {
         {error && <div className="error">{error}</div>}
       </div>
       <p className="forgot-password text-right">
-        Already registered <a href="/sign-in">sign in?</a>
+        Don't have an account? <a href="/signup">Sign up</a>
       </p>
     </form>
   );
 };
-
 export default Login;
