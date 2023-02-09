@@ -45,7 +45,7 @@ const Login = ({navigate}) => {
    <><div className="hero">
    <div className="hero__container">
      <p className='subheader'>Welcome back to jobBuddy!</p>
-     <p className='oneliner'>Please enter your details to log in < br />
+     <p className='oneliner'>Please enter your details to log in! < br />
        
        </p>
    </div>
