@@ -1,6 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
+import './login.css';
 
 const Login = ({navigate}) => {
   const [email, setEmail] = useState("");
@@ -39,6 +40,15 @@ const Login = ({navigate}) => {
   };
  
   return (
+   <><div className="hero">
+   <div className="hero__container">
+     <p className='subheader'>The smart way to job hunt</p>
+     <p className='oneliner'>Streamline your job hunt and land your next < br />
+       career move with jobBuddy< br />
+       
+       </p>
+   </div>
+   </div>
     <form onSubmit={handleSignIn}>
       <h3>Log in</h3>
 
@@ -72,6 +82,7 @@ const Login = ({navigate}) => {
         Don't have an account? <a href="/signup">Sign up</a>
       </p>
     </form>
+  </> 
   );
 };
 export default Login;
