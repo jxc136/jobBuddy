@@ -4,7 +4,7 @@
   overflow: hidden;
   background-color: #ffff;
   padding: 10px;
-  
+  box-shadow: 0px 0px 10px #ccc;
   }
   
   .e-card {
