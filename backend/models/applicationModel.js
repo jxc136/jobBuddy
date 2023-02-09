@@ -1,20 +1,19 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
 const applicationsSchema = new Schema({
-  
   job_title: {
-    type: String, 
+    type: String,
     required: true,
   },
 
   application_title: {
-    type: String
+    type: String,
   },
-  
+
   employer: {
-    type: String
+    type: String,
   },
 
   deadline: {
@@ -22,22 +21,21 @@ const applicationsSchema = new Schema({
   },
 
   deadline_type: {
-    type: String
+    type: String,
   },
 
   status: {
-    type: String
+    type: String,
   },
 
   contact_person: {
-    type: String
+    type: String,
   },
 
   user: {
-    type: mongoose.Schema.Types.ObjectId, 
-    ref: 'User'
-   }
- 
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+  },
 });
 
-module.exports = mongoose.model('Application', applicationsSchema );
+module.exports = mongoose.model("Application", applicationsSchema);
