@@ -34,7 +34,6 @@ let serverPromise = mongoose
   })
   .catch((error) => console.log(error));
 
-
 // Ensure that application schema has been created
 console.log(Application);
 
