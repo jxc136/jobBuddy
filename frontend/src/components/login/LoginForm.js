@@ -42,9 +42,8 @@ const Login = ({navigate}) => {
   return (
    <><div className="hero">
    <div className="hero__container">
-     <p className='subheader'>The smart way to job hunt</p>
-     <p className='oneliner'>Streamline your job hunt and land your next < br />
-       career move with jobBuddy< br />
+     <p className='subheader'>Welcome back to jobBuddy!</p>
+     <p className='oneliner'>Please enter your details to log in < br />
        
        </p>
    </div>
