@@ -2,7 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
 
-const Signup = (signup) => {
+const Signup = ({navigate}) => {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
@@ -33,6 +33,7 @@ const Signup = (signup) => {
       setPassword("");
       setError(null);
       console.log("new User added", json);
+      navigate('/login');
     }
   };
 
@@ -47,7 +48,7 @@ const Signup = (signup) => {
         </p>
     </div>
     </div>
-    <form onSubmit={handleSignUp}>
+    <form className="signup" onSubmit={handleSignUp}>
         <h3>Sign Up</h3>
         <div className="mb-3">
           <label>First name</label>
@@ -92,7 +93,7 @@ const Signup = (signup) => {
           {error && <div className="error">{error}</div>}
         </div>
         <p className="forgot-password text-right">
-          Already registered <a href="/sign-in">sign in?</a>
+          Already registered <a href="/login">Log in here </a>
         </p>
       </form></>
      

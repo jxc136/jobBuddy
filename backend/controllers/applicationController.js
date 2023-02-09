@@ -7,16 +7,15 @@ const { application } = require("express");
 
 // Get ALL applications
 
-const getApplications = (req, res) => {
-  Application.find()
-    .populate("user")
-    .exec(async (err, applications) => {
-      if (err) {
-        throw err;
-      }
-      res.status(200).json(applications);
-    });
-};
+
+const getApplications =  (req, res) => {
+  Application.find().populate('user').exec(async (err, applications) => {
+    if (err) {
+      throw err;
+    }
+  res.status(200).json(applications)
+  });
+}
 
 // Get ONE application
 
@@ -36,31 +35,15 @@ const getOneApplication = async (req, res) => {
 
 // Post a single application
 const createApplication = async (req, res) => {
-  const {
-    job_title,
-    application_title,
-    employer,
-    deadline,
-    deadline_type,
-    status,
-    contact_person,
-    user,
-  } = req.body;
-  // add new doc to DB
+
+  const {job_title, application_title, employer, deadline, deadline_type, status, contact_person, user} = req.body
+  // add new doc to DB 
   try {
-    const application = await Application.create({
-      job_title,
-      application_title,
-      employer,
-      deadline,
-      deadline_type,
-      status,
-      contact_person,
-      user,
-    });
-    res.status(200).json(application);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
+    const application = await Application.create(
+      {job_title, application_title, employer, deadline, deadline_type, status, contact_person, user})
+    res.status(200).json(application)
+  } catch(error) {
+    res.status(400).json({error: error.message})
   }
 };
 

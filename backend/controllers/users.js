@@ -22,8 +22,8 @@ const getUserById = async (req, res) => {
 
 //signup user
 const createUser = async (req, res) => {
-  const { firstname, lastname, email, password } = req.body;
 
+  const { firstname, lastname, email, password } = req.body;
   // add doc to db
   try {
     const user = await User.signup({ firstname, lastname, email, password });
