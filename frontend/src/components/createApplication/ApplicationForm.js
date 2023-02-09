@@ -13,9 +13,8 @@ const AppForm = () => {
   const [myUser, setMyUser] = useState("");
   const [status, setStatus] = useState("");
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
+  const handleSubmit = async ( { e, updated, setUpdated, getApplications}) => {
+    
     const currentUser = window.localStorage.getItem("user_id");
 
     setMyUser(`${currentUser}`);
@@ -53,6 +52,7 @@ const AppForm = () => {
       setStatus("");
       setError(null);
       console.log("new application added", json);
+      await setUpdated(true)
     }
   };
 
@@ -98,7 +98,8 @@ const AppForm = () => {
 
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Deadline Type:</Form.Label>
-        <Form.Control as="select" value={deadline_type} onChange={(e) => setDeadlineType(e.target.value)} placeholder="Enter Deadline Type">
+        <Form.Control as="select" value={deadline_type} onChange={(e) => setDeadlineType(e.target.value)} >
+          <option disabled value="">Enter Deadline Type</option>
           <option value="Application">Application</option>
           <option value="Interview">Interview</option>
           <option value="Test">Test</option>
@@ -110,6 +111,7 @@ const AppForm = () => {
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Status:</Form.Label>
         <Form.Control as="select" value={status} onChange={(e) => setStatus(e.target.value)}>
+        <option disabled value="">Enter Deadline Type</option>
         <option value="Bookmarked">Bookmarked</option>
         <option value="Applying">Applying</option>
         <option value="Applied">Applied</option>
