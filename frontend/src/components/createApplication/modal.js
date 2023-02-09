@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ReactModal from "react-modal";
 import AppForm from "./ApplicationForm";
-// import "./modal.css";
+import "./modal.css";
 
 function Modal() {
   const [isOpen, setIsOpen] = useState(false);

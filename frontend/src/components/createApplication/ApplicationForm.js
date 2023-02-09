@@ -1,4 +1,7 @@
 import { useState } from "react";
+import "./ApplicationForm.css";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 const AppForm = () => {
   const [job_title, setJobTitle] = useState("");
@@ -50,47 +53,59 @@ const AppForm = () => {
   };
 
   return (
-    <form className="create" onSubmit={handleSubmit}>
+    <Form className="create-form" onSubmit={handleSubmit}>
       <h3>Add a new job application </h3>
 
-      <label>Job Title:</label>
-      <input
-        type="string"
-        onChange={(e) => setJobTitle(e.target.value)}
-        value={job_title}
-      />
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Job Title:</Form.Label>
+        <Form.Control
+          type="string"
+          onChange={(e) => setJobTitle(e.target.value)}
+          value={job_title}
+        />
+      </Form.Group>
 
-      <label>Employer:</label>
-      <input
-        type="string"
-        onChange={(e) => setEmployer(e.target.value)}
-        value={employer}
-      />
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Employer:</Form.Label>
+        <Form.Control
+          type="string"
+          onChange={(e) => setEmployer(e.target.value)}
+          value={employer}
+        />
+      </Form.Group>
 
-      <label>Deadline:</label>
-      <input
-        type="date"
-        onChange={(e) => setDeadline(e.target.value)}
-        value={deadline}
-      />
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Deadline:</Form.Label>
+        <Form.Control
+          type="date"
+          onChange={(e) => setDeadline(e.target.value)}
+          value={deadline}
+        />
+      </Form.Group>
 
-      <label>Contact:</label>
-      <input
-        type="string"
-        onChange={(e) => setContact(e.target.value)}
-        value={contact_person}
-      />
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Contact:</Form.Label>
+        <Form.Control
+          type="string"
+          onChange={(e) => setContact(e.target.value)}
+          value={contact_person}
+        />
+      </Form.Group>
 
-      <label>Status:</label>
-      <input
-        type="string"
-        onChange={(e) => setStatus(e.target.value)}
-        value={status}
-      />
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Status:</Form.Label>
+        <Form.Control
+          type="string"
+          onChange={(e) => setStatus(e.target.value)}
+          value={status}
+        />
+      </Form.Group>
 
-      <button>Add application</button>
+      <Button variant="primary" type="submit">
+        Add application
+      </Button>
       {error && <div className="error">{error}</div>}
-    </form>
+    </Form>
   );
 };
 
