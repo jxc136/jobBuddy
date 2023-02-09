@@ -1,0 +1,7 @@
+.create-form {
+  width: 50%;
+  min-height: 300px;
+  overflow: hidden;
+  background-color: #ffff;
+  padding: 10px;
+}

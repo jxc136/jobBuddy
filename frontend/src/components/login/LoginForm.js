@@ -1,6 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
+import './login.css';
 
 const Login = ({navigate}) => {
   const [email, setEmail] = useState("");
@@ -30,55 +31,59 @@ const Login = ({navigate}) => {
       setEmail("");
       setPassword("");
       console.log("User logged in", json);
+
       console.log(json.token)
       console.log(json.user_id)
       window.localStorage.setItem("token", json.token)
       window.localStorage.setItem("user_id", json.user_id)
       navigate('/');
+
     }
   };
  
   return (
+   <><div className="hero">
+   <div className="hero__container">
+     <p className='subheader'>Welcome back to jobBuddy!</p>
+     <p className='oneliner'>Please enter your details to log in < br />
+       
+       </p>
+   </div>
+   </div>
+    <form onSubmit={handleSignIn}>
+      <h3>Log in</h3>
 
-  <><div className="hero">
-      <div className="hero__container">
-        <p className='subheader'>Welcome Back</p>
-        <p className='oneliner'>Lets help you make the next step towards landing your dream <br />
-          career move<br />
-
-        </p>
+      <div className="mb-3">
+        <label>Email address</label>
+        <input
+          type="email"
+          className="form-control"
+          placeholder="Enter email"
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
+        />
       </div>
-    </div><form onSubmit={handleSignIn}>
-        <h3>Log in</h3>
-
-        <div className="mb-3">
-          <label>Email address</label>
-          <input
-            type="email"
-            className="form-control"
-            placeholder="Enter email"
-            onChange={(e) => setEmail(e.target.value)}
-            value={email} />
-        </div>
-        <div className="mb-3">
-          <label>Password</label>
-          <input
-            type="password"
-            className="form-control"
-            placeholder="Enter password"
-            onChange={(e) => setPassword(e.target.value)}
-            value={password} />
-        </div>
-        <div className="d-grid">
-          <button type="submit" className="btn btn-primary">
-            Log in
-          </button>
-          {error && <div className="error">{error}</div>}
-        </div>
-        <p className="forgot-password text-right">
-          Don't have an account? <a href="/signup">Sign up</a>
-        </p>
-      </form></>
+      <div className="mb-3">
+        <label>Password</label>
+        <input
+          type="password"
+          className="form-control"
+          placeholder="Enter password"
+          onChange={(e) => setPassword(e.target.value)}
+          value={password}
+        />
+      </div>
+      <div className="d-grid">
+        <button type="submit" className="btn btn-primary">
+          Log in
+        </button>
+        {error && <div className="error">{error}</div>}
+      </div>
+      <p className="forgot-password text-right">
+        Don't have an account? <a href="/signup">Sign up</a>
+      </p>
+    </form>
+  </> 
   );
 };
 export default Login;
