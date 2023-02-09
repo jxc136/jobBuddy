@@ -12,12 +12,18 @@ describe('practice tests', () => {
   it('allows user to create an account', () => {
     cy.visit('http://localhost:3000/signup')
     cy.contains('Sign Up')
-    signup.enterFirstname('Bing')
-    signup.enterLastname('Bunny')
-    signup.enterEmail('bing@example.com')
-    signup.enterPassword('AbCd12**')
+    // cy.intercept('POST', 'http://localhost:3000/users').as('post')
+    signup.enterFirstname('Peter')
+    signup.enterLastname('Rabbit')
+    signup.enterEmail('pete@example.com')
+    signup.enterPassword('AaBb22**')
     cy.get('.btn').should('contain', 'Sign Up')
     cy.get('.btn').click()
+  
+    // cy.wait('@post').then(interception => {
+    //   expect(interception.response.status).to.eq(201)
+    // })
+    cy.url().should('include', 'http://localhost:3000/login')
     
   })
 })
