@@ -67,7 +67,7 @@ const ApplicationsWidget  = ({applications, updated, setUpdated, getApplications
 
 
   const dialogTemplate = (applications) => {
-    return <KanbanDialogFormTemplate applications={applications} updated={updated} setUpdated={setUpdated} getApplications={getApplications} />;
+    return <KanbanDialogFormTemplate applications={applications} updated={updated} setUpdated={setUpdated} getApplications={getApplications}  />;
   }
 
   return (

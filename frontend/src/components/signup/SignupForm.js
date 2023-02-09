@@ -48,7 +48,7 @@ const Signup = ({navigate}) => {
         </p>
     </div>
     </div>
-    <form onSubmit={handleSignUp}>
+    <form className="signup" onSubmit={handleSignUp}>
         <h3>Sign Up</h3>
         <div className="mb-3">
           <label>First name</label>

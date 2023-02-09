@@ -39,8 +39,9 @@
 h2 {
   color: #1e6a9c;
   margin: 0;
-  padding: 10px;
-  background-color: #F5D77F;
+  padding: 18px;
+ 
+  background-image: url("../public/Applications.png");
   
 }
 
@@ -87,4 +88,7 @@ h4 {
   font-size: 20px;
   word-wrap: break-word;
   font-weight: bold ;
+}
+form.signup {
+padding-bottom: 70px
 }
