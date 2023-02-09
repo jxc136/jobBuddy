@@ -34,6 +34,7 @@ body.active-modal {
   border-radius: 3px;
   max-width: 600px;
   min-width: 300px;
+  max-height: 500px
 }
 
 .close-modal {
@@ -42,3 +43,26 @@ body.active-modal {
   right: 10px;
   padding: 5px 7px;
 }
+
+.ReactModal__Content.ReactModal__Content--after-open {
+  position: absolute;
+  inset: 40px;
+  border: 1px solid rgb(204, 204, 204);
+  background: rgb(255, 255, 255);
+  overflow: auto;
+  border-radius: 4px;
+  outline: none;
+  padding: 20px;
+  max-height: 600px;
+  max-width: 600px;
+}
+
+.create-application {
+  float: left;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-bottom: 0px;
+  margin-left: 20px;
+  padding-bottom: 0;
+}
+

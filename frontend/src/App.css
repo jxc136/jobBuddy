@@ -86,3 +86,8 @@ h4 {
   word-wrap: break-word;
   font-weight: bold ;
 }
+
+.e-btn {
+  background-color: #F5F5F5;
+  padding: 0px 12px 0px;
+}

@@ -6,8 +6,8 @@ import "./modal.css";
 function Modal() {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div>
-      <button onClick={() => setIsOpen(true)}>Add Job </button>
+    <div className="button-container">
+      <button className="create-application"onClick={() => setIsOpen(true)}>Add Job </button>
 
       <ReactModal
         isOpen={isOpen}

@@ -7,6 +7,7 @@ const AppForm = () => {
   const [job_title, setJobTitle] = useState("");
   const [employer, setEmployer] = useState("");
   const [deadline, setDeadline] = useState("");
+  const [deadline_type, setDeadlineType] = useState("");
   const [contact_person, setContact] = useState("");
   const [error, setError] = useState(null);
   const [myUser, setMyUser] = useState("");
@@ -25,6 +26,8 @@ const AppForm = () => {
       job_title,
       employer,
       contact_person,
+      deadline,
+      deadline_type,
       user: currentUser,
       status,
     };
@@ -45,6 +48,7 @@ const AppForm = () => {
       setJobTitle("");
       setEmployer("");
       setDeadline("");
+      setDeadlineType("");
       setContact("");
       setStatus("");
       setError(null);
@@ -93,12 +97,25 @@ const AppForm = () => {
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Deadline Type:</Form.Label>
+        <Form.Control as="select" value={deadline_type} onChange={(e) => setDeadlineType(e.target.value)} placeholder="Enter Deadline Type">
+          <option value="Application">Application</option>
+          <option value="Interview">Interview</option>
+          <option value="Test">Test</option>
+          <option value="Response">Response</option>  
+          <option value="Offer">Offer</option>
+        </Form.Control>
+      </Form.Group>
+   
+      <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Status:</Form.Label>
-        <Form.Control
-          type="string"
-          onChange={(e) => setStatus(e.target.value)}
-          value={status}
-        />
+        <Form.Control as="select" value={status} onChange={(e) => setStatus(e.target.value)}>
+        <option value="Bookmarked">Bookmarked</option>
+        <option value="Applying">Applying</option>
+        <option value="Applied">Applied</option>
+        <option value="Interview">Interview</option>
+        <option value="Offer">Offer</option>
+        </Form.Control>
       </Form.Group>
 
       <Button variant="primary" type="submit">
