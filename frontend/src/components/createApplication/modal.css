@@ -61,8 +61,16 @@ body.active-modal {
   float: left;
   margin-top: 10px;
   margin-right: 10px;
-  margin-bottom: 0px;
+  margin-bottom: 10px;
   margin-left: 20px;
   padding-bottom: 0;
+  background: #0D64C2;
+  color: #ffff;
+  font: sans-serif;
+  border-radius: 0.375rem;
+  
 }
+
+
+
 
