@@ -3,7 +3,7 @@ import ReactModal from "react-modal";
 import AppForm from "./ApplicationForm";
 import "./modal.css";
 
-function Modal() {
+function Modal({updated, setUpdated, getApplications}) {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="button-container">
@@ -11,10 +11,11 @@ function Modal() {
 
       <ReactModal
         isOpen={isOpen}
+        updated={updated} setUpdated={setUpdated} getApplications={getApplications}
         contentLabel="Example Modal"
         onRequestClose={() => setIsOpen(false)}
       >
-        <AppForm />
+        <AppForm updated={updated} setUpdated={setUpdated} getApplications={getApplications}/>
       </ReactModal>
     </div>
   );

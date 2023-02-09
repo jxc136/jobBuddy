@@ -49,7 +49,7 @@ const Home  = ({navigate}) => {
         <div className="subheader-container">
           <h4 className="title-left">My Job Applications</h4>
         </div>
-        <Modal />
+        <Modal updated={updated} setUpdated={setUpdated} getApplications={getApplications} />
         <ApplicationsWidget applications={applications} updated={updated} setUpdated={setUpdated} getApplications={getApplications}  />
       </div>
     </div>
