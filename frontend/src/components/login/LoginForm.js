@@ -1,6 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
+import './login.css';
 
 const Login = ({navigate}) => {
   const [email, setEmail] = useState("");
@@ -30,15 +31,25 @@ const Login = ({navigate}) => {
       setEmail("");
       setPassword("");
       console.log("User logged in", json);
+
       console.log(json.token)
       console.log(json.user_id)
       window.localStorage.setItem("token", json.token)
       window.localStorage.setItem("user_id", json.user_id)
       navigate('/');
+
     }
   };
  
   return (
+   <><div className="hero">
+   <div className="hero__container">
+     <p className='subheader'>Welcome back to jobBuddy!</p>
+     <p className='oneliner'>Please enter your details to log in < br />
+       
+       </p>
+   </div>
+   </div>
     <form onSubmit={handleSignIn}>
       <h3>Log in</h3>
 
@@ -72,6 +83,7 @@ const Login = ({navigate}) => {
         Don't have an account? <a href="/signup">Sign up</a>
       </p>
     </form>
+  </> 
   );
 };
 export default Login;

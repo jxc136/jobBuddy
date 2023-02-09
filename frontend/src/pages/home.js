@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import ApplicationsWidget from "../components/ApplicationsWidget";
+
+import Modal from "../components/createApplication/modal";
 import Footer from "../components/footer";
 
 
@@ -40,14 +42,14 @@ const Home  = ({navigate}) => {
 
   // const currentUserApps = applications.applications.filter(application => application.user._id === currentUser)
   
-
-  return ( 
+  return (
     <div className="Home">
       <div className="Applications">
         <h2>Dashboard</h2>
         <div className="subheader-container">
-        <h4 className="title-left">My Job Applications</h4>
+          <h4 className="title-left">My Job Applications</h4>
         </div>
+        <Modal updated={updated} setUpdated={setUpdated} getApplications={getApplications} />
         <ApplicationsWidget applications={applications} updated={updated} setUpdated={setUpdated} getApplications={getApplications}  />
       </div>
     </div>

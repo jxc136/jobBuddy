@@ -23,13 +23,12 @@ app.use((req, res, next) => {
 app.use("/api/applications", applicationRoutes);
 app.use("/users", userRoutes);
 
-// Connect to Database
+// Connect to Database 
 console.log('MONGO_URI:' + process.env.MONGO_URI)
-mongoose
+let serverPromise = mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
-    // Only listen for requests when connected
-    app.listen(process.env.PORT, () => {
+    return app.listen(process.env.PORT, () => {
       console.log("listening on port", process.env.PORT);
     });
   })
@@ -38,4 +37,4 @@ mongoose
 // Ensure that application schema has been created
 console.log(Application);
 
-module.exports = app
+module.exports = { app, serverPromise }
