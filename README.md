@@ -1,4 +1,5 @@
 # jobBuddy
+![Banner](/frontend/public/banner.png)
 
 ## About this project
 
