@@ -118,18 +118,9 @@ Through creating this app in a group environment, I improved my ability to:
 
 #### Sign Up
 ![Sign up Page](frontend/public/SignUp.png)
-#### Friends Page
-![friends page](./screenshots/friends-page.png)
-#### Friend Profile
-![friend profile](./screenshots/friend-profile.png)
-#### Friend Request Recieved
-![request received](./screenshots/received-request.png)
-#### Friend Request Sent
-![sent request](./screenshots/sent-request.png)
-#### Own profile
-![own profile](./screenshots/own-profile.png)
-#### Post with comment
-![post with comment](./screenshots/post-with-comment.png)
-#### Hover over like button to see post likers
-![screenshot of hover](./screenshots/hover-on-likers.png)
-
+#### Dashboard
+![Dashboard](/public/Dashboard.png)
+#### Create an Application
+![Create an Application](/public/CreateApplication.png)
+#### Edit an Application
+![Edit an Application](/public/EditApplication.png)
