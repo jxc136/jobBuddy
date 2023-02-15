@@ -119,8 +119,8 @@ Through creating this app in a group environment, I improved my ability to:
 #### Sign Up
 ![Sign up Page](frontend/public/SignUp.png)
 #### Dashboard
-![Dashboard](/public/Dashboard.png)
+![Dashboard](frontend/public/Dashboard.png)
 #### Create an Application
-![Create an Application](/public/CreateApplication.png)
+![Create an Application](frontend/public/CreateApplication.png)
 #### Edit an Application
-![Edit an Application](/public/EditApplication.png)
+![Edit an Application](frontend/public/EditApplication.png)
