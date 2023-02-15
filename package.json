@@ -67,8 +67,6 @@
     ]
   },
   "devDependencies": {
-    "@shelf/jest-mongodb": "^4.1.6",
-    "cypress": "^12.4.1",
-    "preset": "@shelf/jest-mongodb"
+    "cypress": "^12.4.1"
   }
 }
