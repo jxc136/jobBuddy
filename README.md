@@ -30,7 +30,7 @@ Through creating this app in a group environment, I improved my ability to:
 - Use a developer workflow to plan, implement and peer-review features
 
 
-#### Project setup
+## Project setup
 
 1. Clone this repository to your local machine
 2. Install Node.js dependencies for both FE and BE (API)
@@ -52,7 +52,7 @@ Through creating this app in a group environment, I improved my ability to:
    brew services start mongodb-community@5.0
    ```
    
- #### Start
+ ## Start
 
 1. Start the back end server
 
@@ -69,12 +69,11 @@ Through creating this app in a group environment, I improved my ability to:
   ; npm start
   ```
   
-  #### Testing
+## Testing
 
 
-#### The Backend (API)
+### The Backend (API)
 
-**Note the use of an environment variable for the JWT secret**
 
   Start the server in test mode (so that it connects to the test DB)
 
@@ -92,7 +91,6 @@ Through creating this app in a group environment, I improved my ability to:
 
 #### The frontend (React)
 
-**Note the use of an environment variable for the JWT secret**
 
   Start the server in test mode (so that it connects to the test DB)
 
