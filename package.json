@@ -40,7 +40,7 @@
     "test": "jest",
     "start:test": "export MONGO_URI='mongodb://127.0.0.1/jobBuddy_test' && node server.js",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "cd frontend && npm install && npm run build",
     "dev": "nodemon server.js",
     "eject": "react-scripts eject"
   },
