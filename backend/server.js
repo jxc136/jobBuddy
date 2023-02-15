@@ -21,7 +21,7 @@ app.use((req, res, next) => {
 // Routes
 
 app.use("/api/applications", applicationRoutes);
-app.use("/users", userRoutes);
+app.use("/api/users", userRoutes);
 
 // Connect to Database 
 console.log('MONGO_URI:' + process.env.MONGO_URI)
