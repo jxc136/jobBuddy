@@ -22,35 +22,41 @@ const AppForm = () => {
     console.log(myUser);
     
 
-const createApplication = {};
+  const createApplication = {};
 
-if (job_title) {
-  createApplication.job_title = job_title;
-}
+  if (job_title) {
+    createApplication.job_title = job_title;
+  } else {
+    setError("Please enter job title");
+    return;
+  }
 
-if (employer) {
-  createApplication.employer = employer;
-}
+  if (employer) {
+    createApplication.employer = employer;
+  }
 
-if (deadline) {
-  createApplication.deadline = deadline;
-}
+  if (deadline) {
+    createApplication.deadline = deadline;
+  }
 
-if (deadline_type) {
-  createApplication.deadline_type = deadline_type;
-}
+  if (deadline_type) {
+    createApplication.deadline_type = deadline_type;
+  }
 
-if (contact_person) {
-  createApplication.contact_person = contact_person;
-}
+  if (contact_person) {
+    createApplication.contact_person = contact_person;
+  }
 
-if (currentUser) {
-  createApplication.user = currentUser;
-}
+  if (currentUser) {
+    createApplication.user = currentUser;
+  }
 
-if (status) {
-  createApplication.status = status;
-}
+  if (status) {
+    createApplication.status = status;
+  } else {
+    setError("Please enter status");
+    return;
+  }
 
 
     // const createApplication = {
@@ -98,6 +104,7 @@ if (status) {
           type="string"
           onChange={(e) => setJobTitle(e.target.value)}
           value={job_title}
+          required
         />
       </Form.Group>
 
@@ -142,7 +149,7 @@ if (status) {
    
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Status:</Form.Label>
-        <Form.Control as="select" value={status} onChange={(e) => setStatus(e.target.value)}>
+        <Form.Control as="select" value={status} required onChange={(e) => setStatus(e.target.value)}>
         <option disabled value="">Enter Deadline Type</option>
         <option value="Bookmarked">Bookmarked</option>
         <option value="Applying">Applying</option>
