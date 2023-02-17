@@ -39,21 +39,24 @@ function KanbanDialogFormTemplate({applications, updated, setUpdated, getApplica
     <div>
       <table>
         <tbody>
-          <tr>
-            <td className="e-label">Job Title</td>
-            <td>
-              <div className="e-float-input e-control-wrapper">
-                <input
-                  id="job_title"
-                  name="job_title"
-                  type="text"
-                  className="e-field"
-                  value={data.job_title}
-                  onChange={onChange.bind(this)}
-                />
-              </div>
-            </td>
-          </tr>
+        <tr>
+  <td className="e-label">Job Title</td>
+  <td>
+    <TextBoxComponent
+      id="job_title"
+      name="job_title"
+      className="e-field"
+      placeholder="Job Title"
+      inputType="text"
+      value={data.job_title}
+      onChange={onChange.bind(this)}
+    ></TextBoxComponent>
+  </td>
+</tr>
+
+
+
+
           <tr>
             <td className="e-label">Employer</td>
 
