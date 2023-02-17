@@ -20,16 +20,54 @@ const AppForm = () => {
     setMyUser(`${currentUser}`);
     console.log(currentUser);
     console.log(myUser);
+    
 
-    const createApplication = {
-      job_title,
-      employer,
-      contact_person,
-      deadline,
-      deadline_type,
-      user: currentUser,
-      status,
-    };
+  const createApplication = {};
+
+  if (job_title) {
+    createApplication.job_title = job_title;
+  } else {
+    setError("Please enter job title");
+    return;
+  }
+
+  if (employer) {
+    createApplication.employer = employer;
+  }
+
+  if (deadline) {
+    createApplication.deadline = deadline;
+  }
+
+  if (deadline_type) {
+    createApplication.deadline_type = deadline_type;
+  }
+
+  if (contact_person) {
+    createApplication.contact_person = contact_person;
+  }
+
+  if (currentUser) {
+    createApplication.user = currentUser;
+  }
+
+  if (status) {
+    createApplication.status = status;
+  } else {
+    setError("Please enter status");
+    return;
+  }
+
+
+    // const createApplication = {
+    //   job_title,
+    //   employer,
+    //   contact_person,
+    //   deadline,
+    //   deadline_type,
+    //   user: currentUser,
+    //   status,
+    // };
 
     const response = await fetch("/api/applications", {
       method: "POST",
@@ -66,6 +104,7 @@ const AppForm = () => {
           type="string"
           onChange={(e) => setJobTitle(e.target.value)}
           value={job_title}
+          required
         />
       </Form.Group>
 
@@ -110,7 +149,7 @@ const AppForm = () => {
    
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Status:</Form.Label>
-        <Form.Control as="select" value={status} onChange={(e) => setStatus(e.target.value)}>
+        <Form.Control as="select" value={status} required onChange={(e) => setStatus(e.target.value)}>
         <option disabled value="">Enter Deadline Type</option>
         <option value="Bookmarked">Bookmarked</option>
         <option value="Applying">Applying</option>

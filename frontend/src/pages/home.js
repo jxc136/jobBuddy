@@ -22,12 +22,14 @@ const Home  = ({navigate}) => {
         console.log(currentUser) 
         const filteredJson = json.filter(application => application.user._id === `${currentUser}`)
         filteredJson.forEach(application => {
-        // Create a new Date object from the deadline value
-        const deadline = new Date(application.deadline);
-        // Format the deadline as DD-MM-YYYY
-        const formattedDeadline = `${deadline.getDate()}-${deadline.getMonth() + 1}-${deadline.getFullYear()}`;
-        // Concatenate the deadline type to the formatted deadline
-        application.deadline = `${application.deadline_type} Deadline: ${formattedDeadline}`;
+          if (application.deadline) {
+            // Create a new Date object from the deadline value
+            const deadline = new Date(application.deadline);
+            // Format the deadline as DD-MM-YYYY
+            const formattedDeadline = `${deadline.getDate()}-${deadline.getMonth() + 1}-${deadline.getFullYear()}`;
+            // Concatenate the deadline type to the formatted deadline
+            application.deadline = `${application.deadline_type} Deadline: ${formattedDeadline}`;
+          }
         });
         console.log(`filteredJson = ${filteredJson}`)
         setApplications(filteredJson)
