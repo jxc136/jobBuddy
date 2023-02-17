@@ -20,16 +20,48 @@ const AppForm = () => {
     setMyUser(`${currentUser}`);
     console.log(currentUser);
     console.log(myUser);
+    
 
-    const createApplication = {
-      job_title,
-      employer,
-      contact_person,
-      deadline,
-      deadline_type,
-      user: currentUser,
-      status,
-    };
+const createApplication = {};
+
+if (job_title) {
+  createApplication.job_title = job_title;
+}
+
+if (employer) {
+  createApplication.employer = employer;
+}
+
+if (deadline) {
+  createApplication.deadline = deadline;
+}
+
+if (deadline_type) {
+  createApplication.deadline_type = deadline_type;
+}
+
+if (contact_person) {
+  createApplication.contact_person = contact_person;
+}
+
+if (currentUser) {
+  createApplication.user = currentUser;
+}
+
+if (status) {
+  createApplication.status = status;
+}
+
+
+    // const createApplication = {
+    //   job_title,
+    //   employer,
+    //   contact_person,
+    //   deadline,
+    //   deadline_type,
+    //   user: currentUser,
+    //   status,
+    // };
 
     const response = await fetch("/api/applications", {
       method: "POST",
